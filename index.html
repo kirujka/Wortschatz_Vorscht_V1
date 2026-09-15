@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wortschatz 1A</title>
+<meta name="theme-color" content="#0E7C6B">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📗</text></svg>">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Wortschatz 1A">
+<style>
+:root{
+  --bg:#F2F6F4; --card:#FFFFFF; --ink:#12211E; --soft:#5A6B67; --line:#D8E2DE;
+  --acc:#0E7C6B; --acc-bg:#DCEFE9; --warn:#C0392B; --warn-bg:#FBE7E4;
+  --gold:#8A6A16; --gold-bg:#F6EFD9; --shadow:0 1px 2px rgba(18,33,30,.06);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101614; --card:#182220; --ink:#E8EFEC; --soft:#9BAAA6; --line:#2A3835;
+    --acc:#4FC8AF; --acc-bg:#1B322D; --warn:#FF8A7A; --warn-bg:#331E1B;
+    --gold:#E0BE6A; --gold-bg:#2E2718; --shadow:none;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  padding:0 0 env(safe-area-inset-bottom,0px);
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 14px 40px}
+header{padding:calc(14px + env(safe-area-inset-top,0px)) 0 8px}
+h1{font-size:19px;margin:0;letter-spacing:-.01em}
+h1 .em{margin-right:6px}
+.sub{font-size:12px;color:var(--soft);margin-top:2px}
+
+nav.tabs{
+  position:sticky;top:0;z-index:20;display:flex;gap:4px;
+  background:var(--bg);padding:8px 0;margin-bottom:10px;border-bottom:1px solid var(--line);
+  padding-top:calc(8px + env(safe-area-inset-top,0px));
+}
+nav.tabs button{
+  flex:1;font:inherit;font-size:13px;padding:8px 4px;border:1px solid var(--line);
+  background:var(--card);color:var(--soft);border-radius:9px;cursor:pointer;min-width:0;
+}
+nav.tabs button.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+
+.panel{display:none}
+.panel.on{display:block}
+
+.row{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:7px}
+.lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);
+  width:100%;margin:6px 0 1px}
+.chip{
+  font:inherit;font-size:12.5px;padding:5px 10px;border:1px solid var(--line);
+  border-radius:14px;background:var(--card);color:var(--soft);cursor:pointer;white-space:nowrap;
+}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.chip.mini{font-size:11px;padding:3px 8px}
+input[type=text],select{
+  font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);
+  border-radius:10px;background:var(--card);color:var(--ink);max-width:100%;
+}
+input[type=text]{flex:1;min-width:150px;width:100%}
+select{min-width:120px}
+label.check{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--soft);cursor:pointer}
+.count{font-size:12px;color:var(--soft);margin:8px 0 10px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;
+  margin-bottom:8px;box-shadow:var(--shadow);overflow:hidden}
+.chead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  padding:11px 13px;cursor:pointer}
+.cw{font-size:15.5px;font-weight:600;flex:1;min-width:0;overflow-wrap:anywhere}
+.ctr{font-size:12px;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:45%}
+.cbody{padding:0 13px 12px;border-top:1px solid var(--line);padding-top:10px}
+.ru{font-size:14px;margin-bottom:6px}
+.meta{font-size:11.5px;color:var(--soft);margin-bottom:6px}
+.bsp{font-size:13.5px;background:var(--acc-bg);border-radius:8px;padding:8px 10px;margin-top:6px}
+.badge{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:9px;
+  background:var(--acc-bg);color:var(--acc);margin-right:4px}
+.badge.g{background:var(--gold-bg);color:var(--gold)}
+.badge.r{background:var(--warn-bg);color:var(--warn)}
+.falle{color:var(--warn);background:var(--warn-bg);border-radius:8px;padding:8px 10px;
+  font-size:13px;margin:6px 0}
+.formen{font-size:12.5px;background:var(--gold-bg);color:var(--gold);border-radius:8px;
+  padding:6px 10px;display:inline-block;margin:4px 0}
+.stbar{display:flex;gap:5px;margin-top:9px}
+.empty{text-align:center;color:var(--soft);font-size:13px;padding:28px 0}
+
+.btn{font:inherit;font-size:14px;padding:10px 14px;border-radius:10px;border:1px solid var(--acc);
+  background:var(--acc);color:#fff;cursor:pointer;font-weight:600}
+.btn.ghost{background:var(--card);color:var(--acc)}
+.btn.grey{background:var(--card);color:var(--soft);border-color:var(--line)}
+.btn.red{background:var(--card);color:var(--warn);border-color:var(--warn)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.wide{flex:1}
+
+.drill{background:var(--card);border:1px solid var(--line);border-radius:13px;
+  padding:20px 16px;text-align:center;min-height:190px;display:flex;flex-direction:column;
+  justify-content:center;gap:12px;box-shadow:var(--shadow)}
+.dq{font-size:21px;font-weight:600;overflow-wrap:anywhere}
+.da{font-size:17px;color:var(--acc);overflow-wrap:anywhere}
+.dhint{font-size:12px;color:var(--soft)}
+.dex{font-size:13px;color:var(--soft);font-style:italic;overflow-wrap:anywhere}
+.stats{display:flex;gap:6px;margin:10px 0 12px;font-size:12px}
+.stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:9px;
+  padding:7px 4px;text-align:center}
+.stat b{display:block;font-size:17px}
+
+.audio-now{background:var(--card);border:1px solid var(--line);border-radius:13px;
+  padding:18px 14px;text-align:center;margin:10px 0;min-height:110px;box-shadow:var(--shadow)}
+.an-w{font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.an-ru{font-size:14px;color:var(--soft);margin-top:4px}
+.an-bsp{font-size:13px;margin-top:8px;color:var(--soft);font-style:italic}
+.set{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:12.5px;color:var(--soft);flex-wrap:wrap}
+.set input[type=range]{flex:1;min-width:130px;accent-color:var(--acc)}
+.set .val{font-variant-numeric:tabular-nums;min-width:48px;text-align:right;color:var(--ink)}
+
+h2.sec{font-size:15px;margin:22px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--acc);
+  color:var(--acc)}
+.memo{background:var(--gold-bg);border-radius:10px;padding:11px 13px;margin-bottom:8px}
+.memo b{display:block;font-size:13px;margin-bottom:3px;color:var(--gold)}
+.memo span{font-size:13.5px}
+.tline{font-size:13.5px;margin:3px 0}
+.tline.warn{color:var(--warn);font-weight:600}
+.quelle{font-size:11.5px;color:var(--soft);margin-top:3px}
+footer{margin-top:26px;padding-top:12px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--soft);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1><span class="em">📗</span>Wortschatz 1A</h1>
+  <div class="sub">Словарь по восьми текстам Sprechen Teil 1A · B2 Beruf</div>
+</header>
+
+<nav class="tabs">
+  <button data-tab="kartei" class="on">Картотека</button>
+  <button data-tab="drill">Дрилл</button>
+  <button data-tab="audio">Аудио</button>
+  <button data-tab="fallen">Ловушки</button>
+</nav>
+
+<section class="panel on" id="p-kartei">
+  <div class="row"><input type="text" id="q" placeholder="Поиск по немецкому и по русскому…"></div>
+  <div class="lbl">Раздел</div>
+  <div class="row" id="f-sec"></div>
+  <div class="lbl">Часть речи</div>
+  <div class="row" id="f-pos"></div>
+  <div class="lbl">Тема</div>
+  <div class="row" id="f-thema"></div>
+  <div class="lbl">Статус</div>
+  <div class="row" id="f-status"></div>
+  <div class="row" style="margin-top:8px">
+    <label class="check"><input type="checkbox" id="f-falle"> только с ловушкой</label>
+    <button class="chip mini" id="f-reset">сбросить фильтры</button>
+  </div>
+  <div class="count" id="k-count"></div>
+  <div id="k-list"></div>
+</section>
+
+<section class="panel" id="p-drill">
+  <div class="stats">
+    <div class="stat"><b id="s-new">0</b>новое</div>
+    <div class="stat"><b id="s-learn">0</b>учу</div>
+    <div class="stat"><b id="s-known">0</b>знаю</div>
+  </div>
+  <div class="row">
+    <select id="d-dir">
+      <option value="de-ru">нем → рус</option>
+      <option value="ru-de">рус → нем (как на экзамене)</option>
+      <option value="cloze">предложение с пропуском</option>
+    </select>
+    <select id="d-deck">
+      <option value="all">всё</option>
+      <option value="woerter">слова</option>
+      <option value="wendungen">обороты</option>
+      <option value="praep">предлоги</option>
+      <option value="subst">существительные</option>
+      <option value="verb">глаголы</option>
+      <option value="adj">прилагательные и наречия</option>
+    </select>
+    <select id="d-thema"></select>
+  </div>
+  <div class="drill" id="d-card"></div>
+  <div class="row" id="d-btns" style="margin-top:10px"></div>
+  <div class="row" style="margin-top:16px">
+    <button class="btn red" id="d-reset">сбросить прогресс</button>
+  </div>
+</section>
+
+<section class="panel" id="p-audio">
+  <div class="lbl">Режим</div>
+  <div class="row">
+    <select id="a-mode">
+      <option value="1">1 · слово</option>
+      <option value="2">2 · слово → пауза → перевод</option>
+      <option value="3">3 · предложение-пример</option>
+      <option value="4">4 · рус → пауза → нем</option>
+      <option value="5">5 · shadowing: медленно, потом нормально</option>
+      <option value="6">6 · только обороты подряд</option>
+    </select>
+  </div>
+  <div class="lbl">Что озвучивать</div>
+  <div class="row">
+    <select id="a-deck">
+      <option value="all">всё</option>
+      <option value="woerter">слова</option>
+      <option value="wendungen">обороты</option>
+      <option value="praep">предлоги</option>
+      <option value="subst">существительные</option>
+      <option value="verb">глаголы</option>
+      <option value="adj">прилагательные и наречия</option>
+    </select>
+    <select id="a-thema"></select>
+    <select id="a-status">
+      <option value="all">любой статус</option>
+      <option value="0">только новое</option>
+      <option value="1">только «учу»</option>
+      <option value="2">только «знаю»</option>
+    </select>
+  </div>
+  <div class="audio-now" id="a-now"><div class="an-ru">Нажмите «Старт»</div></div>
+  <div class="row">
+    <button class="btn wide" id="a-play">▶ Старт</button>
+    <button class="btn grey" id="a-stop">■ Стоп</button>
+    <button class="btn ghost" id="a-next">▶▶</button>
+  </div>
+  <div class="lbl">Настройки</div>
+  <div class="set"><span>Темп</span><input type="range" id="a-rate" min="0.5" max="1.3" step="0.05"><span class="val" id="a-rate-v"></span></div>
+  <div class="set"><span>Пауза</span><input type="range" id="a-pause" min="0.5" max="6" step="0.5"><span class="val" id="a-pause-v"></span></div>
+  <div class="set"><span>Повторы</span><input type="range" id="a-rep" min="1" max="4" step="1"><span class="val" id="a-rep-v"></span></div>
+  <div class="set"><span>DE-голос</span><select id="a-vde"></select></div>
+  <div class="set"><span>RU-голос</span><select id="a-vru"></select></div>
+  <div class="count" id="a-info"></div>
+</section>
+
+<section class="panel" id="p-fallen">
+  <h2 class="sec">Глаголы с предлогами</h2>
+  <div id="t-praep"></div>
+  <h2 class="sec">Местоименные наречия</h2>
+  <div id="t-memo"></div>
+  <div id="t-pronadv"></div>
+  <h2 class="sec">Склонения</h2>
+  <div id="t-dekl"></div>
+</section>
+
+<footer>Wortschatz 1A · данные: 276 слов, 30 оборотов, 18 предлогов, 21 наречие, 10 склонений</footer>
+</div>
+<script>
+/* Wortschatz 1A — данные. Компактные строки: [pos, w, ru, tr, themen, bsp] */
+var W_RAW = [
+["subst","der Alltag","повседневность, будни","дэр Аль-таак","78","Ich möchte Ihnen ein Produkt vorstellen, ohne das mein Alltag kaum noch funktioniert."],
+["subst","das Angebot, -e","предложение","дас Ан-гэ-боот","8","Mein Angebot würde aus drei Teilen bestehen: Computer reparieren, Software installieren und Smart-Home…"],
+["subst","der Ansatz, Ansätze","подход","дэр Ан-зац","4","Seinen Ansatz habe ich übernommen: Schwieriges teile ich sofort in Teile auf."],
+["subst","der Anzug, Anzüge","костюм","дэр Ан-цуук","6","Kleidung spielt in der IT kaum eine Rolle: Bei uns zählt die Erfahrung, nicht der Anzug."],
+["subst","der Arbeitgeber, -","работодатель","дэр Ар-байт-гее-ба","1","Ich habe das Thema „Arbeitgeber“ gewählt."],
+["subst","das Arbeitsbuch, Arbeitsbücher","трудовая книжка","дас Ар-байтс-буух","56","Lebenslauf und Diplom reichen nicht: Man verlangt zusätzlich das Arbeitsbuch, ein Führungszeugnis, den…"],
+["subst","der Arbeitsmarkt, Arbeitsmärkte","рынок труда","дэр Ар-байтс-маркт","56","Dann kommen die Unterlagen — und hier zeigt sich eine Besonderheit unseres Arbeitsmarktes."],
+["subst","die Arbeitssuche","поиск работы","ди Ар-байтс-зуу-хэ","5","Ich habe das Thema „Arbeitssuche“ gewählt."],
+["subst","das Arbeitsumfeld","рабочая среда, рабочее окружение","дас Ар-байтс-ум-фэльт","2","Ich habe das Thema „Arbeitsumfeld“ gewählt."],
+["subst","die Arbeitsweise, -n","манера работы, стиль работы","ди Ар-байтс-вай-зэ","4","Zwei Eigenschaften zeichnen ihn besonders aus: seine Konsequenz und seine strukturierte Arbeitsweise."],
+["subst","die Art, -en","вид, тип, род","ди Аарт","128","Unternehmen dieser Art bringen eine Besonderheit mit sich: enge Fristen und strenge Geheimhaltung."],
+["subst","die Aufmerksamkeit","внимание","ди Ауф-мэрк-заам-кайт","12345678","Vielen Dank für Ihre Aufmerksamkeit."],
+["subst","die Aufstiegschance, -n","возможность продвижения по службе","ди Ауф-штиикс-шанг-сэ","12","Zusammenfassend: Ich suche einen Arbeitgeber, bei dem nicht nur Gehalt und Aufstiegschancen zählen, so…"],
+["subst","der Ausweg, -e","выход (из положения)","дэр Аус-веек","4","Und wenn ich trotzdem nicht weiterkomme, rufe ich ihn an — er hilft mir, einen Ausweg zu finden."],
+["subst","die Bedingung, -en","условие","ди Бэ-дИн-гунг","4","Zusammenfassend: Er ist mein Vorbild, weil er als einfacher Techniker angefangen hat und heute unter ä…"],
+["subst","die Begründung, -en","обоснование, объяснение","ди Бэ-грЮн-дунг","34","Doch er lehnte ab. Seine Begründung hat mich schockiert: Ohne Erfahrung kommt niemand in sein Team — n…"],
+["subst","die Behörde, -n","ведомство, госучреждение","ди Бэ-хЁр-дэ","7","Vielen Migranten und älteren Menschen fällt der Umgang mit Behörden schwer."],
+["subst","das Beispiel, -e","пример","дас Бай-шпииль","24","Ein gutes Arbeitsumfeld kann ich am besten an einem konkreten Beispiel beschreiben."],
+["subst","der Bekannte, -n","знакомый","дэр Бэ-кАн-тэ","5","Gesucht wird auf zwei Wegen: über Fachportale wie DOU, Work.ua und Jinni — oder über Bekannte."],
+["subst","der Bereich, -e","область, сфера","дэр Бэ-рАйхь","3","Ich habe mein Lernen umgestellt und arbeite gezielt auf diesen Bereich hin."],
+["subst","die Berufswahl","выбор профессии","ди Бэ-рУуфс-вааль","3","Ich habe das Thema „Berufswahl“ gewählt."],
+["subst","das Besondere","особенное, отличительное","дас Бэ-зОн-дэ-рэ","8","Das Besondere: Smart Home ist für mich kein Luxus, sondern Hilfe im Alltag — Licht, Heizung und Sicher…"],
+["subst","die Besonderheit, -en","особенность","ди Бэ-зОн-да-хайт","1256","Unternehmen dieser Art bringen eine Besonderheit mit sich: enge Fristen und strenge Geheimhaltung."],
+["subst","die Bewerbung, -en","заявка на работу, отклик","ди Бэ-вЭр-бунг","56","Ich habe mich selbst beworben: etwa vierzig Bewerbungen und zwei Einladungen zum Vorstellungsgespräch."],
+["subst","das Bewerbungsgespräch, -e","собеседование","дас Бэ-вЭр-бунгс-гэ-шпрэхь","6","Ich habe das Thema „Bewerbungsgespräch“ gewählt."],
+["subst","die Bewerbungsmappe, -n","комплект документов на работу","ди Бэ-вЭр-бунгс-ма-пэ","5","Im Gespräch selbst entscheidet aber nicht die Bewerbungsmappe, sondern die Vorbereitung."],
+["subst","die Bezahlung","оплата","ди Бэ-цАа-лунг","123","Auch die Bezahlung stimmt — und das spielt für mich eine wichtige Rolle."],
+["subst","die Branche, -n","отрасль","ди БрАнг-шэ","123","Ein wesentlicher Vorteil ist die Sicherheit: Die Branche wächst, und Fachleute werden noch lange gebra…"],
+["subst","der Bruder, Brüder","брат","дэр Бруу-да","123457","Dort arbeitet mein älterer Bruder: Er leitet ein IT-Team."],
+["subst","der Dank","благодарность","дэр Данк","12345678","Vielen Dank für Ihre Aufmerksamkeit."],
+["subst","die Dienstleistung, -en","услуга","ди Диинст-лай-стунг","78","Ich habe das Thema „ein Produkt / eine Dienstleistung“ gewählt."],
+["subst","der Druck","давление","дэр Друк","4","Auch unter Druck verliert er den Überblick nicht: Jede Aufgabe zerlegt er in kleine Schritte und kommt…"],
+["subst","die Eigenschaft, -en","качество, свойство","ди Ай-гэн-шафт","4","Zwei Eigenschaften zeichnen ihn besonders aus: seine Konsequenz und seine strukturierte Arbeitsweise."],
+["subst","der Einfluss, Einflüsse","влияние","дэр Айн-флус","3","Zusammenfassend: Den größten Einfluss auf meine Berufswahl hatte mein Bruder — und diese Branche bleib…"],
+["subst","die Einführung, -en","внедрение, введение","ди Айн-фюю-рунг","1","Die Arbeit ist auf mehrere Teams verteilt: Entwicklung, Tests und Einführung beim Kunden."],
+["subst","die Einladung, -en","приглашение","ди Айн-лаа-дунг","5","Ich habe mich selbst beworben: etwa vierzig Bewerbungen und zwei Einladungen zum Vorstellungsgespräch."],
+["subst","das Empfehlungsschreiben, -","рекомендательное письмо","дас Эмп-фЭэ-лунгс-шрай-бэн","56","Lebenslauf und Diplom reichen nicht: Man verlangt zusätzlich das Arbeitsbuch, ein Führungszeugnis, den…"],
+["subst","das Ende","конец","дас Эн-дэ","12345678","Damit komme ich zum Ende meines Vortrags."],
+["subst","die Entwicklung, -en","разработка, развитие","ди Энт-вИк-лунг","1","Die Arbeit ist auf mehrere Teams verteilt: Entwicklung, Tests und Einführung beim Kunden."],
+["subst","das Ereignis, -se","событие","дас Эр-Айг-нис","3","Meinen Beruf habe ich nicht ausgesucht — zwei Ereignisse haben ihn für mich ausgesucht."],
+["subst","die Erfahrung, -en","опыт","ди Эр-фАа-рунг","123456","Ich weiß das aus eigener Erfahrung: Fünf Jahre habe ich als Techniker in einem IT-Unternehmen gearbeitet."],
+["subst","der Erfolg, -e","успех","дэр Эр-фОльк","127","Dort arbeiten Menschen, die für ihre Sache brennen und ein gemeinsames Ziel verfolgen."],
+["subst","das Ergebnis, -se","результат","дас Эр-гЭэп-нис","47","Auch unter Druck verliert er den Überblick nicht: Jede Aufgabe zerlegt er in kleine Schritte und kommt…"],
+["subst","die Fachleute (Plural)","специалисты","ди Фах-лой-тэ","123","Ein wesentlicher Vorteil ist die Sicherheit: Die Branche wächst, und Fachleute werden noch lange gebra…"],
+["subst","das Fachportal, -e","профильный портал","дас Фах-пор-тааль","5","Gesucht wird auf zwei Wegen: über Fachportale wie DOU, Work.ua und Jinni — oder über Bekannte."],
+["subst","die Fähigkeit, -en","способность","ди ФЭэ-ихь-кайт","8","Zusammenfassend kann ich sagen, dass diese Geschäftsidee realistisch ist und gut zu meinen Fähigkeiten…"],
+["subst","der Fehler, -","ошибка","дэр Фээ-ла","27","Bei uns wurden Fehler besprochen und nicht bestraft — genau das ist für mich offene Kommunikation."],
+["subst","der Feierabend","конец рабочего дня","дэр Фай-а-аа-бэнт","12","Der Unterschied ist sofort spürbar: Man geht mit Interesse zur Arbeit und zählt nicht die Stunden bis …"],
+["subst","die Firma, Firmen","фирма","ди Фир-ма","12356","Hinzu kommt, dass man in so einer Firma aufsteigen kann."],
+["subst","die Frage, -n","вопрос","ди Фраа-гэ","12345678","Gerne beantworte ich jetzt Ihre Fragen."],
+["subst","die Frist, -en","срок","ди Фрист","128","Unternehmen dieser Art bringen eine Besonderheit mit sich: enge Fristen und strenge Geheimhaltung."],
+["subst","das Führungszeugnis, -se","справка о несудимости","дас Фюю-рунгс-цойк-нис","56","Lebenslauf und Diplom reichen nicht: Man verlangt zusätzlich das Arbeitsbuch, ein Führungszeugnis, den…"],
+["subst","die Fußstapfen (Plural)","стопы, следы","ди Фуус-штап-фэн","4","Er hat mir viel beigebracht, und ich versuche, in seine Fußstapfen zu treten."],
+["subst","das Gehalt, Gehälter","зарплата","дас Гэ-хАльт","12","Zusammenfassend: Ich suche einen Arbeitgeber, bei dem nicht nur Gehalt und Aufstiegschancen zählen, so…"],
+["subst","die Geheimhaltung","секретность, неразглашение","ди Гэ-хАйм-халь-тунг","123","Unternehmen dieser Art bringen eine Besonderheit mit sich: enge Fristen und strenge Geheimhaltung."],
+["subst","die Geschäftsidee, -n","бизнес-идея","ди Гэ-шЭфтс-и-дээ","8","Ein wesentlicher Vorteil dieser Geschäftsidee ist, dass man kein großes Startkapital braucht."],
+["subst","das Gespräch, -e","разговор, беседа","дас Гэ-шпрЭхь","56","Ich habe mich selbst beworben: etwa vierzig Bewerbungen und zwei Einladungen zum Vorstellungsgespräch."],
+["subst","die Grundversion","базовая версия","ди Грунт-вэр-зи-Оон","7","Ein wesentlicher Vorteil ist, dass man die Grundversion kostenlos nutzen kann."],
+["subst","die Heizung, -en","отопление","ди Хай-цунг","8","Das Besondere: Smart Home ist für mich kein Luxus, sondern Hilfe im Alltag — Licht, Heizung und Sicher…"],
+["subst","der Ingenieur, -e","инженер","дэр Ин-же-нЁр","347","Als ziviler Ingenieur arbeitet er für die ukrainischen Streitkräfte: Sein Team entwickelt und implemen…"],
+["subst","die Information, -en","информация","ди Ин-фор-ма-ци-Оон","7","Allerdings gibt es auch einen erheblichen Nachteil: Die KI macht Fehler und erfindet manchmal Informat…"],
+["subst","die Intelligenz","интеллект","ди Ин-тэ-ли-гЭнц","7","Es handelt sich um einen KI-Assistenten, also um ein Programm mit künstlicher Intelligenz."],
+["subst","das Jahr, -e","год","дас Яар","1278","Ich weiß das aus eigener Erfahrung: Fünf Jahre habe ich als Techniker in einem IT-Unternehmen gearbeitet."],
+["subst","der Jugendliche, -n","подросток","дэр Юу-гэнт-ли-хэ","7","Außerdem wird sie für immer mehr Menschen zugänglich: Inzwischen gibt es sogar Versionen für Jugendlic…"],
+["subst","der KI-Assistent, -en","ИИ-ассистент","дэр Каа-И-а-си-стЭнт","7","Es handelt sich um einen KI-Assistenten, also um ein Programm mit künstlicher Intelligenz."],
+["subst","die KI-Lösung, -en","решение на базе ИИ","ди Каа-И-лёё-зунг","347","Als ziviler Ingenieur arbeitet er für die ukrainischen Streitkräfte: Sein Team entwickelt und implemen…"],
+["subst","die Konsequenz","принципиальность, последовательность","ди Кон-зэ-квЭнц","4","Zwei Eigenschaften zeichnen ihn besonders aus: seine Konsequenz und seine strukturierte Arbeitsweise."],
+["subst","der Krieg, -e","война","дэр Криик","3","Nach 2014, als Russland den Krieg gegen die Ukraine begann, gingen viele unserer IT-Leute in die Verte…"],
+["subst","der Kunde, -n","клиент","дэр Кун-дэ","1568","Die Arbeit ist auf mehrere Teams verteilt: Entwicklung, Tests und Einführung beim Kunden."],
+["subst","der Kundenstamm","постоянная клиентура","дэр Кун-дэн-штам","8","Mittelfristig, wenn ich einen festen Kundenstamm hätte, könnte ich Mitarbeiter einstellen — auf Minijo…"],
+["subst","die Lage","положение, ситуация","ди Лаа-гэ","567","Dann kommen die Unterlagen — und hier zeigt sich eine Besonderheit unseres Arbeitsmarktes."],
+["subst","der Lebenslauf, Lebensläufe","резюме","дэр Лээ-бэнс-лауф","56","Lebenslauf und Diplom reichen nicht: Man verlangt zusätzlich das Arbeitsbuch, ein Führungszeugnis, den…"],
+["subst","das Lernen","учёба, обучение","дас Лэр-нэн","37","Ich habe mein Lernen umgestellt und arbeite gezielt auf diesen Bereich hin."],
+["subst","das Licht, -er","свет","дас Лихьт","8","Ich spreche die Sprache meiner Kunden — die russischsprachige Community in Dresden ist groß. Englisch …"],
+["subst","der Luxus","роскошь","дэр Лук-сус","8","Das Besondere: Smart Home ist für mich kein Luxus, sondern Hilfe im Alltag — Licht, Heizung und Sicher…"],
+["subst","die Million, -en","миллион","ди Ми-ли-Оон","7","Der Erfolg ist deutlich zu sehen: Solche Programme werden weltweit von Millionen Menschen genutzt."],
+["subst","der Mitarbeiter, -","сотрудник","дэр Мит-ар-бай-та","8","Mittelfristig, wenn ich einen festen Kundenstamm hätte, könnte ich Mitarbeiter einstellen — auf Minijo…"],
+["subst","die Möglichkeit, -en","возможность","ди Мёёк-лихь-кайт","5","Diese Möglichkeit hatte ich auch: Mein älterer Bruder leitet ein IT-Team."],
+["subst","der Monat, -e","месяц","дэр Моо-нат","5","Wie man in der ukrainischen IT eine Stelle sucht, weiß ich nicht aus Ratgebern, sondern aus zwei Monat…"],
+["subst","die Nachfrage","спрос","ди Наах-фраа-гэ","8","Außerdem besteht eine große Nachfrage nach solchen Dienstleistungen."],
+["subst","die Nachricht, -en","новость, известие","ди Наах-рихьт","3","Diese Nachricht hat mich überrascht und stark motiviert."],
+["subst","der Nachteil, -e","недостаток, минус","дэр Наах-тайль","7","Allerdings gibt es auch einen erheblichen Nachteil: Die KI macht Fehler und erfindet manchmal Informat…"],
+["subst","das Niveau, -s","уровень","дас Ни-вОо","12","Von solchen Kollegen lernt man ständig dazu, und sie halten einen auf Niveau: Wer zurückfällt, wird sc…"],
+["subst","die Pflicht, -en","обязанность","ди Пфлихьт","8","Ich spreche die Sprache meiner Kunden — die russischsprachige Community in Dresden ist groß. Englisch …"],
+["subst","die Praxis","практика","ди Прак-сис","5","Wie man in der ukrainischen IT eine Stelle sucht, weiß ich nicht aus Ratgebern, sondern aus zwei Monat…"],
+["subst","der Ratgeber, -","советчик, справочник","дэр Раат-гее-ба","5","Wie man in der ukrainischen IT eine Stelle sucht, weiß ich nicht aus Ratgebern, sondern aus zwei Monat…"],
+["subst","die Rente, -n","пенсия","ди Рэн-тэ","12","Dort würde ich gerne bis zur Rente arbeiten."],
+["subst","die Sache, -n","дело","ди За-хэ","12","Dort arbeiten Menschen, die für ihre Sache brennen und ein gemeinsames Ziel verfolgen."],
+["subst","der Schritt, -e","шаг","дэр Шрит","4","Auch unter Druck verliert er den Überblick nicht: Jede Aufgabe zerlegt er in kleine Schritte und kommt…"],
+["subst","die Sicherheit","безопасность, надёжность","ди Зи-хьа-хайт","128","Es handelt sich um ein IT-Unternehmen, das KI-Produkte für Verteidigung und Sicherheit entwickelt und …"],
+["subst","die Sprache, -n","язык","ди Шпраа-хэ","78","Genau hier setzt die KI an: Sie erklärt schwierige Briefe in einfacher Sprache."],
+["subst","das Startkapital","стартовый капитал","дас Штарт-ка-пи-тааль","8","Ein wesentlicher Vorteil dieser Geschäftsidee ist, dass man kein großes Startkapital braucht."],
+["subst","die Stelle, -n","место работы, вакансия","ди Штэ-лэ","1345678","Ich möchte Ihnen einen Arbeitgeber vorstellen, bei dem ich noch nie gearbeitet habe — und den ich trot…"],
+["subst","die Streitkräfte (Plural)","вооружённые силы","ди Штрайт-крэф-тэ","347","Als ziviler Ingenieur arbeitet er für die ukrainischen Streitkräfte: Sein Team entwickelt und implemen…"],
+["subst","die Stunde, -n","час","ди Штун-дэ","12","Der Unterschied ist sofort spürbar: Man geht mit Interesse zur Arbeit und zählt nicht die Stunden bis …"],
+["subst","der Tag, -e","день","дэр Таак","78","Ich möchte Ihnen ein Produkt vorstellen, ohne das mein Alltag kaum noch funktioniert."],
+["subst","die Technik","техника","ди Тэхь-ник","12348","Ich weiß das aus eigener Erfahrung: Fünf Jahre habe ich als Techniker in einem IT-Unternehmen gearbeitet."],
+["subst","der Techniker, -","техник","дэр Тэхь-ни-ка","12348","Ich weiß das aus eigener Erfahrung: Fünf Jahre habe ich als Techniker in einem IT-Unternehmen gearbeitet."],
+["subst","der Teil, -e","часть","дэр Тайль","12478","Die Arbeit ist auf mehrere Teams verteilt: Entwicklung, Tests und Einführung beim Kunden."],
+["subst","der Überblick","целостная картина, обзор","дэр Юю-ба-блик","4","Auch unter Druck verliert er den Überblick nicht: Jede Aufgabe zerlegt er in kleine Schritte und kommt…"],
+["subst","der Umgang","обращение, обхождение","дэр Ум-ганг","78","Vielen Migranten und älteren Menschen fällt der Umgang mit Behörden schwer."],
+["subst","die Unterlagen (Plural)","документы","ди Ун-та-лаа-гэн","56","Dann kommen die Unterlagen — und hier zeigt sich eine Besonderheit unseres Arbeitsmarktes."],
+["subst","das Unternehmen, -","предприятие, фирма","дас Ун-та-нээ-мэн","12","Es handelt sich um ein IT-Unternehmen, das KI-Produkte für Verteidigung und Sicherheit entwickelt und …"],
+["subst","der Unterschied, -e","разница","дэр Ун-та-шиит","12","Der Unterschied ist sofort spürbar: Man geht mit Interesse zur Arbeit und zählt nicht die Stunden bis …"],
+["subst","die Unterstützung","поддержка","ди Ун-та-штЮ-цунг","8","Ich denke, dass diese Geschäftsidee gute Zukunftschancen hat, weil viele Menschen Unterstützung im All…"],
+["subst","die Verantwortung","ответственность","ди Фэр-Ант-вор-тунг","8","Jetzt möchte ich selbstständig arbeiten. Ich übernehme die Verantwortung."],
+["subst","die Verteidigung","оборона","ди Фэр-тАй-ди-гунг","123","Es handelt sich um ein IT-Unternehmen, das KI-Produkte für Verteidigung und Sicherheit entwickelt und …"],
+["subst","die Verteidigungsindustrie","оборонная промышленность","ди Фэр-тАй-ди-гунгс-ин-дус-трИи","3","Nach 2014, als Russland den Krieg gegen die Ukraine begann, gingen viele unserer IT-Leute in die Verte…"],
+["subst","die Vollzeit","полная занятость","ди Фоль-цайт","8","Mittelfristig, wenn ich einen festen Kundenstamm hätte, könnte ich Mitarbeiter einstellen — auf Minijo…"],
+["subst","die Vorbereitung, -en","подготовка","ди Фоор-бэ-рай-тунг","56","Im Gespräch selbst entscheidet aber nicht die Bewerbungsmappe, sondern die Vorbereitung."],
+["subst","das Vorbild, -er","пример для подражания","дас Фоор-бильт","4","Ich habe das Thema „berufliches Vorbild“ gewählt."],
+["subst","das Vorgehen","образ действий, порядок действий","дас Фоор-гее-эн","4","Seine strukturierte Arbeitsweise sieht man an seinem Vorgehen."],
+["subst","das Vorstellungsgespräch, -e","собеседование","дас Фоор-штэ-лунгс-гэ-шпрэхь","56","Ich habe mich selbst beworben: etwa vierzig Bewerbungen und zwei Einladungen zum Vorstellungsgespräch."],
+["subst","der Vorteil, -e","преимущество","дэр Фоор-тайль","1278","Ein wesentlicher Vorteil ist die Sicherheit: Die Branche wächst, und Fachleute werden noch lange gebra…"],
+["subst","der Vortrag, Vorträge","доклад","дэр Фоор-траак","12345678","Damit komme ich zum Ende meines Vortrags."],
+["subst","der Weg, -e","путь","дэр Веек","345","Vorher durfte er wegen der Geheimhaltung nicht darüber sprechen."],
+["subst","der Wehrpass, Wehrpässe","военный билет","дэр Вээр-пас","56","Lebenslauf und Diplom reichen nicht: Man verlangt zusätzlich das Arbeitsbuch, ein Führungszeugnis, den…"],
+["subst","das Ziel, -e","цель","дас Цииль","123","Dort arbeiten Menschen, die für ihre Sache brennen und ein gemeinsames Ziel verfolgen."],
+["subst","die Zukunftschance, -n","перспектива на будущее","ди Цуу-кунфтс-шанг-сэ","8","Ich denke, dass diese Geschäftsidee gute Zukunftschancen hat, weil viele Menschen Unterstützung im All…"],
+["subst","die Minijob-Basis","мини-джоб (форма занятости в Германии)","ди Ми-ни-джоп-баа-зис","8","Mittelfristig, wenn ich einen festen Kundenstamm hätte, könnte ich Mitarbeiter einstellen — auf Minijo…"],
+["subst","das Smart Home, Smart-Home-Systeme","умный дом","дас Смарт Хоом","8","Mein Angebot würde aus drei Teilen bestehen: Computer reparieren, Software installieren und Smart-Home…"],
+["verb","ablehnen (lehnt ab, lehnte ab, hat abgelehnt)","отказать, отклонить","Ап-лээ-нэн","345","Doch er lehnte ab. Seine Begründung hat mich schockiert: Ohne Erfahrung kommt niemand in sein Team — n…"],
+["verb","ankommen auf (kommt an, kam an, ist angekommen)","зависеть от, решаться чем-то","Ан-ко-мэн ауф","6","Ich war in der Ukraine bei mehreren Vorstellungsgesprächen — und erst das letzte hat mir gezeigt, wora…"],
+["verb","ansetzen (setzt an, setzte an, hat angesetzt)","приступать, вступать в дело","Ан-зэ-цэн","7","Genau hier setzt die KI an: Sie erklärt schwierige Briefe in einfacher Sprache."],
+["verb","aufsteigen (steigt auf, stieg auf, ist aufgestiegen)","подниматься, расти по службе","Ауф-штай-гэн","12","Hinzu kommt, dass man in so einer Firma aufsteigen kann."],
+["verb","aufteilen (teilt auf)","делить, разделять","Ауф-тай-лэн","4","Seinen Ansatz habe ich übernommen: Schwieriges teile ich sofort in Teile auf."],
+["verb","aussuchen (sucht aus)","выбирать","Аус-зуу-хэн","3","Meinen Beruf habe ich nicht ausgesucht — zwei Ereignisse haben ihn für mich ausgesucht."],
+["verb","auszeichnen (zeichnet aus)","отличать, выделять","Аус-цайхь-нэн","12","Was ein solches Unternehmen wirklich auszeichnet, ist das Team."],
+["verb","beantworten","отвечать на","бэ-Ант-вор-тэн","12345678","Gerne beantworte ich jetzt Ihre Fragen."],
+["verb","beginnen (beginnt, begann, hat begonnen)","начинать","бэ-гИ-нэн","3","Nach 2014, als Russland den Krieg gegen die Ukraine begann, gingen viele unserer IT-Leute in die Verte…"],
+["verb","beherrschen","владеть, знать уверенно","бэ-хЭр-шэн","56","Ich weiß das aus eigener Erfahrung: Server und Cloud-Systeme beherrsche ich, aber gesucht war jemand, …"],
+["verb","beibringen (bringt bei, brachte bei, hat beigebracht)","научить, обучить","Бай-брин-гэн","4","Er hat mir viel beigebracht, und ich versuche, in seine Fußstapfen zu treten."],
+["verb","bekommen (bekommt, bekam, hat bekommen)","получать","бэ-кО-мэн","56","Ich habe die Stelle nicht bekommen."],
+["verb","beschreiben (beschreibt, beschrieb, hat beschrieben)","описывать","бэ-шрАй-бэн","2","Ein gutes Arbeitsumfeld kann ich am besten an einem konkreten Beispiel beschreiben."],
+["verb","besprechen (bespricht, besprach, hat besprochen)","обсуждать","бэ-шпрЭ-хэн","2","Bei uns wurden Fehler besprochen und nicht bestraft — genau das ist für mich offene Kommunikation."],
+["verb","bestehen aus (besteht, bestand, hat bestanden)","состоять из","бэ-штЭэ-эн аус","8","Mein Angebot würde aus drei Teilen bestehen: Computer reparieren, Software installieren und Smart-Home…"],
+["verb","bestehen (besteht, bestand, hat bestanden)","существовать, иметься","бэ-штЭэ-эн","8","Außerdem besteht eine große Nachfrage nach solchen Dienstleistungen."],
+["verb","bestrafen","наказывать","бэ-штрАа-фэн","2","Bei uns wurden Fehler besprochen und nicht bestraft — genau das ist für mich offene Kommunikation."],
+["verb","betreffen (betrifft, betraf, hat betroffen)","касаться, затрагивать","бэ-трЭ-фэн","7","Dieses Thema betrifft mich auch persönlich."],
+["verb","sich bewerben (bewirbt sich, bewarb sich, hat sich beworben)","подавать заявку на работу","зихь бэ-вЭр-бэн","5","Ich habe mich selbst beworben: etwa vierzig Bewerbungen und zwei Einladungen zum Vorstellungsgespräch."],
+["verb","bitten um (bittet, bat, hat gebeten)","просить о","бИ-тэн ум","345","Mein älterer Bruder leitete schon ein IT-Team, und ich bat ihn um eine Stelle."],
+["verb","bleiben (bleibt, blieb, ist geblieben)","оставаться","блАй-бэн","3","Zusammenfassend: Den größten Einfluss auf meine Berufswahl hatte mein Bruder — und diese Branche bleib…"],
+["verb","brennen für (brennt, brannte, hat gebrannt)","гореть чем-то, быть увлечённым","брЭ-нэн фюр","12","Dort arbeiten Menschen, die für ihre Sache brennen und ein gemeinsames Ziel verfolgen."],
+["verb","bringen (bringt, brachte, hat gebracht)","приносить","брИн-гэн","1256","Unternehmen dieser Art bringen eine Besonderheit mit sich: enge Fristen und strenge Geheimhaltung."],
+["verb","dazugehören (gehört dazu)","принадлежать к числу, быть среди них","да-цУу-гэ-хёё-рэн","3","Dass mein Bruder auch dazugehört, erfuhr ich erst 2020."],
+["verb","dürfen (darf, durfte, hat gedurft)","иметь право, сметь","дЮр-фэн","3","Vorher durfte er wegen der Geheimhaltung nicht darüber sprechen."],
+["verb","einführen (führt ein)","внедрять, вводить","Айн-фюю-рэн","12","Es handelt sich um ein IT-Unternehmen, das KI-Produkte für Verteidigung und Sicherheit entwickelt und …"],
+["verb","einrichten (richtet ein)","настраивать, оборудовать","Айн-рихь-тэн","8","Mein Angebot würde aus drei Teilen bestehen: Computer reparieren, Software installieren und Smart-Home…"],
+["verb","einstellen (stellt ein)","нанимать на работу","Айн-штэ-лэн","8","Mittelfristig, wenn ich einen festen Kundenstamm hätte, könnte ich Mitarbeiter einstellen — auf Minijo…"],
+["verb","entscheiden (entscheidet, entschied, hat entschieden)","решать","энт-шАй-дэн","5","Im Gespräch selbst entscheidet aber nicht die Bewerbungsmappe, sondern die Vorbereitung."],
+["verb","entwickeln","разрабатывать, развивать","энт-вИ-кэльн","12347","Es handelt sich um ein IT-Unternehmen, das KI-Produkte für Verteidigung und Sicherheit entwickelt und …"],
+["verb","erfahren (erfährt, erfuhr, hat erfahren)","узнавать","эр-фАа-рэн","3","Dass mein Bruder auch dazugehört, erfuhr ich erst 2020."],
+["verb","erfinden (erfindet, erfand, hat erfunden)","выдумывать, изобретать","эр-фИн-дэн","7","Allerdings gibt es auch einen erheblichen Nachteil: Die KI macht Fehler und erfindet manchmal Informat…"],
+["verb","erklären","объяснять","эр-клЭэ-рэн","7","Genau hier setzt die KI an: Sie erklärt schwierige Briefe in einfacher Sprache."],
+["verb","eröffnen","открывать (дело, фирму)","эр-Ёф-нэн","8","Meine Idee ist es, einen kleinen Computerservice zu eröffnen."],
+["verb","finden (findet, fand, hat gefunden)","находить","фИн-дэн","34","Nach der Universität war ich sicher, schnell eine Stelle zu finden."],
+["verb","gebraucht werden","быть нужным, требоваться","гэ-брАухт вээр-дэн","123","Ein wesentlicher Vorteil ist die Sicherheit: Die Branche wächst, und Fachleute werden noch lange gebra…"],
+["verb","gehören zu","относиться к, входить в","гэ-хЁё-рэн цуу","6","Zur Vorbereitung gehören auch die Unterlagen — und hier zeigt sich eine Besonderheit unseres Arbeitsma…"],
+["verb","halten (hält, hielt, hat gehalten)","держать","хАль-тэн","12","Von solchen Kollegen lernt man ständig dazu, und sie halten einen auf Niveau: Wer zurückfällt, wird sc…"],
+["verb","sich handeln um (handelt sich)","речь идёт о","зихь хАн-дэльн ум","127","Es handelt sich um ein IT-Unternehmen, das KI-Produkte für Verteidigung und Sicherheit entwickelt und …"],
+["verb","hinarbeiten auf (arbeitet hin)","целенаправленно двигаться к","хИн-ар-бай-тэн ауф","3","Ich habe mein Lernen umgestellt und arbeite gezielt auf diesen Bereich hin."],
+["verb","hinzukommen (kommt hinzu)","добавляться","хин-цУу-ко-мэн","12","Hinzu kommt, dass man in so einer Firma aufsteigen kann."],
+["verb","implementieren","внедрять","им-пле-мэн-тИи-рэн","347","Als ziviler Ingenieur arbeitet er für die ukrainischen Streitkräfte: Sein Team entwickelt und implemen…"],
+["verb","sich informieren über","узнавать о, наводить справки","зихь ин-фор-мИи-рэн юю-ба","56","Ich informiere mich vorher über die Firma und ihre Kunden."],
+["verb","kennen (kennt, kannte, hat gekannt)","знать (быть знакомым)","кЭ-нэн","1","Ich möchte Ihnen einen Arbeitgeber vorstellen, bei dem ich noch nie gearbeitet habe — und den ich trot…"],
+["verb","kommen (kommt, kam, ist gekommen)","приходить","кО-мэн","12345678","Hinzu kommt, dass man in so einer Firma aufsteigen kann."],
+["verb","landen","оказываться, попадать","лАн-дэн","124","Deshalb landet man dort nicht zufällig."],
+["verb","leiten","руководить, возглавлять","лАй-тэн","123457","Dort arbeitet mein älterer Bruder: Er leitet ein IT-Team."],
+["verb","nutzen","пользоваться, использовать","нУ-цэн","7","Ich selbst nutze vor allem den KI-Assistenten Claude — sowohl beim Deutschlernen als auch im Alltag."],
+["verb","passen zu","подходить к, соответствовать","пА-сэн цуу","568","Ausschlaggebend ist am Ende aber etwas anderes: ob das eigene Profil zur Stelle passt."],
+["verb","reichen","хватать, быть достаточным","рАй-хэн","56","Lebenslauf und Diplom reichen nicht: Man verlangt zusätzlich das Arbeitsbuch, ein Führungszeugnis, den…"],
+["verb","sagen","говорить, сказать","зАа-гэн","5678","Zusammenfassend kann ich sagen: Auf das Gespräch kann man sich vorbereiten, auf fehlende Erfahrung nicht."],
+["verb","schockieren","шокировать","шо-кИи-рэн","34","Doch er lehnte ab. Seine Begründung hat mich schockiert: Ohne Erfahrung kommt niemand in sein Team — n…"],
+["verb","schützen","защищать","шЮ-цэн","3","Ausschlaggebend ist aber etwas anderes: Diese Arbeit schützt Menschen."],
+["verb","sehen (sieht, sah, hat gesehen)","видеть","зЭэ-эн","47","Seine strukturierte Arbeitsweise sieht man an seinem Vorgehen."],
+["verb","sollen (soll, sollte)","быть должным","зО-лэн","7","Deshalb sollte man die Ergebnisse immer überprüfen."],
+["verb","sprechen (spricht, sprach, hat gesprochen)","говорить","шпрЭ-хэн","38","Vorher durfte er wegen der Geheimhaltung nicht darüber sprechen."],
+["verb","stimmen","быть в порядке, соответствовать истине","штИ-мэн","123","Auch die Bezahlung stimmt — und das spielt für mich eine wichtige Rolle."],
+["verb","teilen","делить","тАй-лэн","4","Seinen Ansatz habe ich übernommen: Schwieriges teile ich sofort in Teile auf."],
+["verb","treten (tritt, trat, ist getreten)","ступать, шагать","трЭэ-тэн","4","Er hat mir viel beigebracht, und ich versuche, in seine Fußstapfen zu treten."],
+["verb","tun (tut, tat, hat getan)","делать","туун","4","Mein berufliches Vorbild ist mein älterer Bruder — und was er tut, ist heute wichtiger als je zuvor."],
+["verb","überprüfen","перепроверять","юю-ба-прЮю-фэн","7","Deshalb sollte man die Ergebnisse immer überprüfen."],
+["verb","übernehmen (übernimmt, übernahm, hat übernommen)","перенимать; брать на себя","юю-ба-нЭэ-мэн","48","Seinen Ansatz habe ich übernommen: Schwieriges teile ich sofort in Teile auf."],
+["verb","überraschen","удивлять, поражать","юю-ба-рА-шэн","3","Diese Nachricht hat mich überrascht und stark motiviert."],
+["verb","überwiegen (überwiegt, überwog, hat überwogen)","перевешивать, преобладать","юю-ба-вИи-гэн","7","Zusammenfassend kann ich sagen, dass die Vorteile überwiegen."],
+["verb","umgehen mit (geht um)","обращаться с","Ум-гее-эн мит","78","Vielen Migranten und älteren Menschen fällt der Umgang mit Behörden schwer."],
+["verb","umstellen (stellt um)","перестраивать, переключать","Ум-штэ-лэн","3","Ich habe mein Lernen umgestellt und arbeite gezielt auf diesen Bereich hin."],
+["verb","verfolgen","преследовать (цель), отслеживать","фэр-фОль-гэн","12","Dort arbeiten Menschen, die für ihre Sache brennen und ein gemeinsames Ziel verfolgen."],
+["verb","verlangen","требовать","фэр-лАн-гэн","56","Lebenslauf und Diplom reichen nicht: Man verlangt zusätzlich das Arbeitsbuch, ein Führungszeugnis, den…"],
+["verb","verlieren (verliert, verlor, hat verloren)","терять","фэр-лИи-рэн","4","Auch unter Druck verliert er den Überblick nicht: Jede Aufgabe zerlegt er in kleine Schritte und kommt…"],
+["verb","verstehen (versteht, verstand, hat verstanden)","понимать","фэр-штЭэ-эн","3","Da verstand ich, warum er so deutlich gesprochen hatte."],
+["verb","versuchen","пытаться, пробовать","фэр-зУу-хэн","4","Er hat mir viel beigebracht, und ich versuche, in seine Fußstapfen zu treten."],
+["verb","verteilen","распределять","фэр-тАй-лэн","1","Die Arbeit ist auf mehrere Teams verteilt: Entwicklung, Tests und Einführung beim Kunden."],
+["verb","sich vorbereiten auf","готовиться к","зихь фОор-бэ-рай-тэн ауф","56","Zusammenfassend kann ich sagen: Auf das Gespräch kann man sich vorbereiten, auf fehlende Erfahrung nicht."],
+["verb","vorstellen (stellt vor)","представлять, презентовать","фОор-штэ-лэн","17","Ich möchte Ihnen einen Arbeitgeber vorstellen, bei dem ich noch nie gearbeitet habe — und den ich trot…"],
+["verb","wachsen (wächst, wuchs, ist gewachsen)","расти","вАк-сэн","123","Ein wesentlicher Vorteil ist die Sicherheit: Die Branche wächst, und Fachleute werden noch lange gebra…"],
+["verb","wählen","выбирать","вЭэ-лэн","12345678","Ich habe das Thema „Arbeitgeber“ gewählt."],
+["verb","weiterkommen (kommt weiter)","продвигаться дальше","вАй-та-ко-мэн","4","Und wenn ich trotzdem nicht weiterkomme, rufe ich ihn an — er hilft mir, einen Ausweg zu finden."],
+["verb","werden (wird, wurde, ist geworden)","становиться","вЭэр-дэн","123567","Von solchen Kollegen lernt man ständig dazu, und sie halten einen auf Niveau: Wer zurückfällt, wird sc…"],
+["verb","wissen (weiß, wusste, hat gewusst)","знать (факт)","вИ-сэн","12456","Ich weiß das aus eigener Erfahrung: Fünf Jahre habe ich als Techniker in einem IT-Unternehmen gearbeitet."],
+["verb","zahlen","платить","цАа-лэн","8","Zugleich sind sie bereit, dafür zu zahlen."],
+["verb","zählen","считать; иметь значение","цЭэ-лэн","126","Der Unterschied ist sofort spürbar: Man geht mit Interesse zur Arbeit und zählt nicht die Stunden bis …"],
+["verb","zeigen","показывать","цАй-гэн","456","Seine Konsequenz zeigt sich gut an einem Beispiel."],
+["verb","sich zeigen","проявляться, обнаруживаться","зихь цАй-гэн","456","Seine Konsequenz zeigt sich gut an einem Beispiel."],
+["verb","zerlegen","раскладывать, разбирать на части","цэр-лЭэ-гэн","4","Auch unter Druck verliert er den Überblick nicht: Jede Aufgabe zerlegt er in kleine Schritte und kommt…"],
+["verb","zurechtkommen (kommt zurecht)","справляться","цу-рЭхьт-ко-мэн","","Vielen Menschen fällt es schwer, mit der Technik zurechtzukommen. (нет в текстах, но нужен)"],
+["verb","zurückfallen (fällt zurück)","отставать","цу-рЮк-фа-лэн","12","Von solchen Kollegen lernt man ständig dazu, und sie halten einen auf Niveau: Wer zurückfällt, wird sc…"],
+["adj","allein","один, в одиночку","а-лАйн","8","Das Besondere: Smart Home ist für mich kein Luxus, sondern Hilfe im Alltag — Licht, Heizung und Sicher…"],
+["adj","allerdings","однако, правда","А-ла-динкс","7","Allerdings gibt es auch einen erheblichen Nachteil: Die KI macht Fehler und erfindet manchmal Informat…"],
+["adj","angestellt","наёмный, работающий по найму","Ан-гэ-штэльт","8","Nach fünf Jahren als angestellter IT-Techniker möchte ich nicht mehr für jemanden arbeiten, sondern fü…"],
+["adj","attraktiv","привлекательный","а-трак-тИиф","3","Zusammenfassend: Den größten Einfluss auf meine Berufswahl hatte mein Bruder — und diese Branche bleib…"],
+["adj","ausschlaggebend","решающий","Аус-шлаак-гее-бэнт","356","Ausschlaggebend ist aber etwas anderes: Diese Arbeit schützt Menschen."],
+["adj","außerdem","кроме того","Ау-са-дээм","78","Außerdem wird sie für immer mehr Menschen zugänglich: Inzwischen gibt es sogar Versionen für Jugendlic…"],
+["adj","äußerst","крайне, чрезвычайно","Ой-са-ст","4","Zusammenfassend: Er ist mein Vorbild, weil er als einfacher Techniker angefangen hat und heute unter ä…"],
+["adj","beleidigt","обиженный","бэ-лАй-дихьт","34","Ich war beleidigt, fand aber selbst eine Stelle — als einfacher Techniker in einer IT-Firma."],
+["adj","bereit","готовый","бэ-рАйт","568","Im Gespräch selbst entscheidet aber nicht die Bewerbungsmappe, sondern die Vorbereitung."],
+["adj","beruflich","профессиональный","бэ-рУуф-лихь","4","Ich habe das Thema „berufliches Vorbild“ gewählt."],
+["adj","besonders","особенно","бэ-зОн-дас","4","Zwei Eigenschaften zeichnen ihn besonders aus: seine Konsequenz und seine strukturierte Arbeitsweise."],
+["adj","derselbe, dieselbe, dasselbe","тот же самый","дэр-зЭль-бэ","56","Soweit ich weiß, wird das in Deutschland für dieselbe Stelle nicht verlangt."],
+["adj","deutlich","отчётливо, ясно","дОйт-лихь","37","Da verstand ich, warum er so deutlich gesprochen hatte."],
+["adj","eigen","собственный","Ай-гэн","123456","Ich weiß das aus eigener Erfahrung: Fünf Jahre habe ich als Techniker in einem IT-Unternehmen gearbeitet."],
+["adj","einfach","простой","Айн-фах","347","Ich war beleidigt, fand aber selbst eine Stelle — als einfacher Techniker in einer IT-Firma."],
+["adj","eng","узкий, жёсткий (о сроках)","энк","12","Unternehmen dieser Art bringen eine Besonderheit mit sich: enge Fristen und strenge Geheimhaltung."],
+["adj","erheblich","существенный, значительный","эр-хЭэп-лихь","7","Allerdings gibt es auch einen erheblichen Nachteil: Die KI macht Fehler und erfindet manchmal Informat…"],
+["adj","erst","только, лишь (о времени)","ээрст","36","Dass mein Bruder auch dazugehört, erfuhr ich erst 2020."],
+["adj","fachlich","профессионально, в профессиональном плане","фАх-лихь","12","Von solchen Kollegen lernt man ständig dazu, und sie halten einen auf Niveau: Wer zurückfällt, wird sc…"],
+["adj","fehlend","отсутствующий, недостающий","фЭэ-лэнт","56","Zusammenfassend kann ich sagen: Auf das Gespräch kann man sich vorbereiten, auf fehlende Erfahrung nicht."],
+["adj","fest","прочный, постоянный","фэст","8","Mittelfristig, wenn ich einen festen Kundenstamm hätte, könnte ich Mitarbeiter einstellen — auf Minijo…"],
+["adj","gemeinsam","общий, совместный","гэ-мАйн-заам","12","Dort arbeiten Menschen, die für ihre Sache brennen und ein gemeinsames Ziel verfolgen."],
+["adj","gerade","именно, как раз","гэ-рАа-дэ","56","Die Fragen sind fast immer dieselben: Warum gerade wir? Welche Erfahrung bringen Sie mit?"],
+["adj","gerne","охотно","гЭр-нэ","12345678","Dort würde ich gerne bis zur Rente arbeiten."],
+["adj","gezielt","целенаправленно","гэ-цИильт","3","Ich habe mein Lernen umgestellt und arbeite gezielt auf diesen Bereich hin."],
+["adj","inzwischen","тем временем, к настоящему моменту","ин-цвИ-шэн","7","Außerdem wird sie für immer mehr Menschen zugänglich: Inzwischen gibt es sogar Versionen für Jugendlic…"],
+["adj","je","когда-либо","ее","4","Mein berufliches Vorbild ist mein älterer Bruder — und was er tut, ist heute wichtiger als je zuvor."],
+["adj","jemand","кто-то","Ее-мант","568","Ich weiß das aus eigener Erfahrung: Server und Cloud-Systeme beherrsche ich, aber gesucht war jemand, …"],
+["adj","kaum","едва, почти не","каум","67","Kleidung spielt in der IT kaum eine Rolle: Bei uns zählt die Erfahrung, nicht der Anzug."],
+["adj","konkret","конкретный","кон-крЭэт","2","Ein gutes Arbeitsumfeld kann ich am besten an einem konkreten Beispiel beschreiben."],
+["adj","kostenlos","бесплатно","кО-стэн-лоос","7","Ein wesentlicher Vorteil ist, dass man die Grundversion kostenlos nutzen kann."],
+["adj","künstlich","искусственный","кЮнст-лихь","7","Es handelt sich um einen KI-Assistenten, also um ein Programm mit künstlicher Intelligenz."],
+["adj","letzt- (der letzte)","последний","лЭцт","6","Ich war in der Ukraine bei mehreren Vorstellungsgesprächen — und erst das letzte hat mir gezeigt, wora…"],
+["adj","manchmal","иногда","мАнхь-мааль","7","Allerdings gibt es auch einen erheblichen Nachteil: Die KI macht Fehler und erfindet manchmal Informat…"],
+["adj","mehrere","несколько","мЭэ-рэ-рэ","16","Die Arbeit ist auf mehrere Teams verteilt: Entwicklung, Tests und Einführung beim Kunden."],
+["adj","menschlich","по-человечески, человеческий","мЭнш-лихь","12","Von solchen Kollegen lernt man ständig dazu, und sie halten einen auf Niveau: Wer zurückfällt, wird sc…"],
+["adj","mittelfristig","в среднесрочной перспективе","мИ-тэль-фри-стихь","8","Mittelfristig, wenn ich einen festen Kundenstamm hätte, könnte ich Mitarbeiter einstellen — auf Minijo…"],
+["adj","niemand","никто","нИи-мант","345","Doch er lehnte ab. Seine Begründung hat mich schockiert: Ohne Erfahrung kommt niemand in sein Team — n…"],
+["adj","offen","открытый","О-фэн","2","Bei uns wurden Fehler besprochen und nicht bestraft — genau das ist für mich offene Kommunikation."],
+["adj","perfekt","идеальный","пэр-фЭкт","7","Obwohl künstliche Intelligenz noch nicht perfekt ist, wird sie immer besser."],
+["adj","persönlich","лично","пэр-зЁён-лихь","7","Dieses Thema betrifft mich auch persönlich."],
+["adj","realistisch","реалистичный","ре-а-лИс-тиш","8","Zusammenfassend kann ich sagen, dass diese Geschäftsidee realistisch ist und gut zu meinen Fähigkeiten…"],
+["adj","schwer","тяжёлый, трудный","швээр","78","Vielen Migranten und älteren Menschen fällt der Umgang mit Behörden schwer."],
+["adj","schwierig","трудный, сложный","швИи-рихь","47","Seinen Ansatz habe ich übernommen: Schwieriges teile ich sofort in Teile auf."],
+["adj","selbst","сам","зэльпст","3578","Ich war beleidigt, fand aber selbst eine Stelle — als einfacher Techniker in einer IT-Firma."],
+["adj","selbstständig","самостоятельный","зЭльпст-штэн-дихь","8","Ich habe das Thema „sich selbstständig machen“ gewählt."],
+["adj","sicher","уверенный","зИ-хьа","3","Nach der Universität war ich sicher, schnell eine Stelle zu finden."],
+["adj","sofort","сразу, немедленно","зо-фОрт","124","Der Unterschied ist sofort spürbar: Man geht mit Interesse zur Arbeit und zählt nicht die Stunden bis …"],
+["adj","sogar","даже","зо-гАар","7","Außerdem wird sie für immer mehr Menschen zugänglich: Inzwischen gibt es sogar Versionen für Jugendlic…"],
+["adj","solch- (ein solcher, solche)","такой","зольхь","1278","Was ein solches Unternehmen wirklich auszeichnet, ist das Team."],
+["adj","sowieso","и так, всё равно","зо-ви-зОо","8","Ich spreche die Sprache meiner Kunden — die russischsprachige Community in Dresden ist groß. Englisch …"],
+["adj","spürbar","ощутимый","шпЮюр-баар","12","Der Unterschied ist sofort spürbar: Man geht mit Interesse zur Arbeit und zählt nicht die Stunden bis …"],
+["adj","ständig","постоянно","штЭн-дихь","1238","Von solchen Kollegen lernt man ständig dazu, und sie halten einen auf Niveau: Wer zurückfällt, wird sc…"],
+["adj","stark","сильно","штарк","3","Diese Nachricht hat mich überrascht und stark motiviert."],
+["adj","streng","строгий","штрэнк","12","Unternehmen dieser Art bringen eine Besonderheit mit sich: enge Fristen und strenge Geheimhaltung."],
+["adj","strukturiert","структурированный","штрук-ту-рИирт","4","Zwei Eigenschaften zeichnen ihn besonders aus: seine Konsequenz und seine strukturierte Arbeitsweise."],
+["adj","trotzdem","тем не менее, всё равно","трОц-дээм","14","Ich möchte Ihnen einen Arbeitgeber vorstellen, bei dem ich noch nie gearbeitet habe — und den ich trot…"],
+["adj","ukrainisch","украинский","у-кра-Ии-ниш","3457","Als ziviler Ingenieur arbeitet er für die ukrainischen Streitkräfte: Sein Team entwickelt und implemen…"],
+["adj","uninteressant","неинтересный","Ун-ин-тэ-рэ-сант","12","Von solchen Kollegen lernt man ständig dazu, und sie halten einen auf Niveau: Wer zurückfällt, wird sc…"],
+["adj","weltweit","по всему миру","вЭльт-вайт","7","Der Erfolg ist deutlich zu sehen: Solche Programme werden weltweit von Millionen Menschen genutzt."],
+["adj","wesentlich","существенный","вЭэ-зэнт-лихь","1278","Ein wesentlicher Vorteil ist die Sicherheit: Die Branche wächst, und Fachleute werden noch lange gebra…"],
+["adj","wichtig","важный","вИхь-тихь","1246","Auch die Bezahlung stimmt — und das spielt für mich eine wichtige Rolle."],
+["adj","wirklich","действительно","вИрк-лихь","126","Was ein solches Unternehmen wirklich auszeichnet, ist das Team."],
+["adj","zivil","гражданский (не военный)","ци-вИиль","347","Als ziviler Ingenieur arbeitet er für die ukrainischen Streitkräfte: Sein Team entwickelt und implemen…"],
+["adj","zufällig","случайно","цУу-фэ-лихь","124","Deshalb landet man dort nicht zufällig."],
+["adj","zugänglich","доступный","цУу-гэн-лихь","7","Außerdem wird sie für immer mehr Menschen zugänglich: Inzwischen gibt es sogar Versionen für Jugendlic…"],
+["adj","zugleich","одновременно, при этом","цу-глАйхь","8","Zugleich sind sie bereit, dafür zu zahlen."],
+["adj","zusätzlich","дополнительно","цУу-зэц-лихь","56","Lebenslauf und Diplom reichen nicht: Man verlangt zusätzlich das Arbeitsbuch, ein Führungszeugnis, den…"],
+["adj","zuvor","прежде, ранее","цу-фОор","4","Mein berufliches Vorbild ist mein älterer Bruder — und was er tut, ist heute wichtiger als je zuvor."]
+];
+
+/* обороты: [w, ru, tr, bsp] */
+var WEND_RAW = [
+["es handelt sich um + Akk","речь идёт о","эс хАн-дэльт зихь ум","Es handelt sich um ein IT-Unternehmen."],
+["ausschlaggebend sein","быть решающим","Аус-шлаак-гее-бэнт зайн","Ausschlaggebend ist aber etwas anderes."],
+["etwas mit sich bringen","нести с собой, влечь за собой","мит зихь брИн-гэн","Unternehmen dieser Art bringen eine Besonderheit mit sich."],
+["in der Lage sein, etwas zu tun","быть в состоянии что-то сделать","ин дэр Лаа-гэ зайн","Ein solcher Assistent ist in der Lage, Texte zu schreiben."],
+["eine Rolle spielen","играть роль","Ай-нэ рО-лэ шпИи-лэн","Das spielt für mich eine wichtige Rolle."],
+["aus eigener Erfahrung wissen","знать по собственному опыту","аус Ай-гэ-на эр-фАа-рунг","Ich weiß das aus eigener Erfahrung."],
+["jemanden auf Niveau halten","держать кого-то на уровне","ауф ни-вОо хАль-тэн","Sie halten einen auf Niveau."],
+["den Überblick verlieren","терять целостную картину","дэн Юю-ба-блик фэр-лИи-рэн","Auch unter Druck verliert er den Überblick nicht."],
+["in jemandes Fußstapfen treten","идти по чьим-то стопам","ин Фуус-штап-фэн трЭэ-тэн","Ich versuche, in seine Fußstapfen zu treten."],
+["zum Ergebnis kommen","приходить к результату","цум эр-гЭэп-нис кО-мэн","… und kommt so zum Ergebnis."],
+["recht haben","быть правым","рэхьт хАа-бэн","Heute weiß ich, dass er recht hatte."],
+["Einfluss haben auf + Akk","иметь влияние на","Айн-флус хАа-бэн ауф","Den größten Einfluss auf meine Berufswahl hatte mein Bruder."],
+["zum Ende kommen","подходить к концу","цум Эн-дэ кО-мэн","Damit komme ich zum Ende meines Vortrags."],
+["am Ende","в итоге, в конце концов","ам Эн-дэ","Ausschlaggebend ist am Ende aber etwas anderes."],
+["vor allem","прежде всего","фоор А-лэм","Ich nutze vor allem den KI-Assistenten Claude."],
+["sowohl … als auch","как …, так и","зо-вОоль … альс аух","sowohl beim Deutschlernen als auch im Alltag"],
+["nicht nur … sondern auch","не только …, но и","нихьт нуур … зОн-дан аух","… bei dem nicht nur Gehalt zählt, sondern auch das Team"],
+["nicht …, sondern …","не …, а …","нихьт … зОн-дан","Smart Home ist kein Luxus, sondern Hilfe im Alltag."],
+["im Alltag","в повседневной жизни","им Аль-таак","Hilfe im Alltag"],
+["soweit ich weiß","насколько я знаю","зо-вАйт ихь вайс","Soweit ich weiß, wird das in Deutschland nicht verlangt."],
+["auf zwei Wegen","двумя путями","ауф цвай Вээ-гэн","Gesucht wird auf zwei Wegen."],
+["jemandem fällt etwas schwer","кому-то что-то даётся тяжело","фэльт швээр","Vielen Migranten fällt der Umgang mit der Technik schwer."],
+["die Verantwortung übernehmen","брать ответственность на себя","фэр-Ант-вор-тунг юю-ба-нЭэ-мэн","Ich übernehme die Verantwortung."],
+["sich selbstständig machen","открыть своё дело","зихь зЭльпст-штэн-дихь мА-хэн","Jetzt möchte ich mich selbstständig machen."],
+["wichtiger als je zuvor","важнее, чем когда-либо","вИхь-ти-га альс ее цу-фОор","… ist heute wichtiger als je zuvor."],
+["nicht einmal","даже не","нихьт Айн-мааль","… nicht einmal sein eigener Bruder."],
+["hier setzt etwas an","вот здесь что-то и вступает в дело","хиир зэцт ан","Genau hier setzt die KI an."],
+["die Bezahlung stimmt","с оплатой всё в порядке","ди бэ-цАа-лунг штимт","Auch die Bezahlung stimmt."],
+["gute Zukunftschancen haben","иметь хорошие перспективы","гУу-тэ цУу-кунфтс-шан-сэн","… dass diese Geschäftsidee gute Zukunftschancen hat."],
+["auf Minijob-Basis oder in Vollzeit","на мини-джоб или на полную ставку","ауф Ми-ни-джоп-баа-зис","… könnte ich Mitarbeiter einstellen — auf Minijob-Basis oder in Vollzeit."]
+];
+
+/* глаголы с предлогами: [w, kasus, ru, falle, bsp] */
+var PRAEP_RAW = [
+["ankommen auf","Akk","зависеть от, решаться чем-то","рус. «зависеть ОТ» — нем. AUF, не von","… worauf es wirklich ankommt."],
+["arbeiten für","Akk","работать на (кого-то)","рус. «работать НА» — нем. FÜR, не auf","Als ziviler Ingenieur arbeitet er für die ukrainischen Streitkräfte."],
+["bitten um","Akk","просить о","рус. «просить О» — нем. UM, не über","Ich bat ihn um eine Stelle."],
+["brennen für","Akk","гореть чем-то, быть увлечённым","рус. творительный падеж — нем. предлог FÜR","Menschen, die für ihre Sache brennen"],
+["sich bewerben bei / um","Dat / Akk","подавать заявку (куда / на что)","","Ich habe mich selbst beworben."],
+["sich informieren über","Akk","узнавать о, наводить справки","рус. «О» — нем. ÜBER + Akkusativ","Ich informiere mich vorher über die Firma."],
+["passen zu","Dat","подходить к, соответствовать","","… und gut zu meinen Fähigkeiten passt."],
+["hinarbeiten auf","Akk","целенаправленно двигаться к","рус. «К» — нем. AUF, не zu","Ich arbeite gezielt auf diesen Bereich hin."],
+["sich vorbereiten auf","Akk","готовиться к","рус. «К» — нем. AUF, не zu","Auf das Gespräch kann man sich vorbereiten."],
+["gehören zu","Dat","относиться к, входить в","","Zur Vorbereitung gehören auch die Unterlagen."],
+["bestehen aus","Dat","состоять из","","Mein Angebot würde aus drei Teilen bestehen."],
+["umgehen mit","Dat","обращаться с","","der Umgang mit der Technik"],
+["zahlen für","Akk","платить за","","Zugleich sind sie bereit, dafür zu zahlen."],
+["Einfluss haben auf","Akk","иметь влияние на","","Den größten Einfluss auf meine Berufswahl hatte mein Bruder."],
+["sprechen über / von","Akk / Dat","говорить о","два варианта, оба верны","Vorher durfte er nicht darüber sprechen."],
+["beantworten","БЕЗ предлога, + Akk","отвечать на (вопрос)","рус. «отвечать НА вопрос» — нем. БЕЗ предлога: eine Frage beantworten","Gerne beantworte ich jetzt Ihre Fragen."],
+["jemandem fällt etwas schwer","Dat","кому-то тяжело даётся","подлежащее — ДЕЛО, человек в дативе, как рус. «мне тяжело»","Vielen Migranten fällt der Umgang schwer."],
+["rechnen mit","Dat","рассчитывать на","рус. «рассчитывать НА» — нем. MIT. В финальных текстах нет, но встречается постоянно","Damit hatte ich nicht gerechnet."]
+];
+
+/* памятка: [titel, text] */
+var MEMO_RAW = [
+["Как это устроено","da(r)- + предлог = «этим / об этом / на это». wo(r)- + предлог = «чем? / о чём? / на что?». Буква r вставляется только перед гласной: damit, davon, dafür — но darauf, daran, darüber, worin, worauf."],
+["Главное правило","Какой предлог — решает ГЛАГОЛ, а не русский перевод. rechnen MIT → damit. ankommen AUF → darauf. zahlen FÜR → dafür. Поэтому учить надо не слово darauf, а пару «глагол + предлог» — тогда da-форма и вопрос приходят сами."],
+["Только о вещах, не о людях","Ich rechne damit (с этим делом), но Ich rechne mit ihm (с ним, человеком). Ich denke daran (об этом), но Ich denke an ihn (о нём). Вещь → da-слово. Человек → предлог + местоимение."],
+["Указание вперёд","Эти слова умеют держать место для придаточного, которое будет дальше: Es kommt darauf an, OB das Profil passt. Das Besondere liegt darin, DASS ich zum Kunden komme. По-русски это «дело в том, ЧТО …» — структура один в один."]
+];
+
+/* местоименные наречия: [w, ru, quelle, [bsp...]] */
+var PRONADV_RAW = [
+["damit","с этим, этим","mit · rechnen mit, sprechen mit",["Damit hatte ich nicht gerechnet. — На это я не рассчитывал.","ВНИМАНИЕ: damit — ещё и союз «чтобы»: Ich lerne, damit ich die Prüfung bestehe."]],
+["dafür","за это, для этого","für · zahlen für, danken für",["Zugleich sind sie bereit, dafür zu zahlen.","Können Sie dafür ein Beispiel nennen? — Можете привести пример?"]],
+["davon","от этого, об этом","von · abhängen von, sprechen von",["Das hängt davon ab. — Это зависит от этого.","Wovon hängt das ab? — От чего это зависит?"]],
+["darauf","на это, к этому","auf · ankommen auf, warten auf, kommen auf",["Genau darauf kommt es an. — Именно это и решает.","Wie sind Sie darauf gekommen? — Как вы к этому пришли?"]],
+["daran","об этом, над этим, за это","an · denken an, arbeiten an, sich erinnern an",["Ich denke oft daran. — Я часто об этом думаю.","Woran arbeiten Sie gerade? — Над чем вы сейчас работаете?"]],
+["darin","в этом","in · liegen in, bestehen in",["Das Besondere liegt darin, dass ich zum Kunden komme.","Worin sehen Sie den Vorteil? — В чём вы видите преимущество?"]],
+["darüber","об этом, над этим","über · sprechen über, sich informieren über",["Vorher durfte er nicht darüber sprechen.","Worüber möchten Sie sprechen? — О чём вы хотите говорить?"]],
+["darunter","под этим; среди них, в том числе","unter · verstehen unter",["Was verstehen Sie darunter? — Что вы под этим понимаете?","… darunter mehr als zehntausend Ukrainer — среди них более десяти тысяч украинцев"]],
+["daraus","из этого","aus · bestehen aus, folgen aus",["Daraus ergibt sich ein Problem. — Отсюда возникает проблема.","Woraus besteht Ihr Angebot? — Из чего состоит ваше предложение?"]],
+["dazu","к этому, для этого; к тому же","zu · gehören zu, führen zu",["Wie stehen Sie dazu? — Как вы к этому относитесь?","Dazu kommt noch ein Vorteil. — К этому добавляется ещё одно преимущество."]],
+["dagegen","против этого; зато, напротив","gegen · sprechen gegen, sich wehren gegen",["Was spricht dagegen? — Что против этого говорит?","Ich dagegen sehe das anders. — Я же вижу это иначе."]],
+["dadurch","благодаря этому, тем самым","durch",["Dadurch spare ich Zeit. — Благодаря этому я экономлю время.","Wodurch unterscheidet sich Ihr Angebot? — Чем отличается ваше предложение?"]],
+["dabei","при этом, заодно","bei",["Worauf kommt es dabei an? — Что при этом решает?","Dabei habe ich viel gelernt. — При этом я многому научился."]],
+["dahinter","за этим","hinter",["Was steckt dahinter? — Что за этим стоит?"]],
+["deshalb / deswegen / darum","поэтому","—",["Deshalb landet man dort nicht zufällig.","ВНИМАНИЕ: darum чаще всего значит «поэтому», а не «об этом»."]],
+["trotzdem","несмотря на это, всё равно","—",["Und wenn ich trotzdem nicht weiterkomme, rufe ich ihn an."]],
+["womit?","чем? с чем?","mit",["Womit rechnen Sie? — На что вы рассчитываете?"]],
+["wofür?","за что? для чего?","für",["Wofür interessieren Sie sich? — Чем вы интересуетесь?"]],
+["worauf?","на что? чего?","auf",["Worauf warten Sie? — Чего вы ждёте?"]],
+["wozu?","зачем? для чего?","zu",["Wozu brauchen Sie das? — Зачем вам это нужно?","ВНИМАНИЕ: не «к чему»."]],
+["worum?","о чём?","um",["Worum geht es? — О чём речь?"]]
+];
+
+/* n-Deklination: [w, ru, formen, bsp] */
+var NDEKL_RAW = [
+["der Mensch, -en","человек","den Menschen · dem Menschen · die Menschen","Vielen Migranten und älteren Menschen fällt der Umgang schwer."],
+["der Kunde, -n","клиент","den Kunden · dem Kunden · die Kunden","Ich informiere mich vorher über die Firma und ihre Kunden."],
+["der Kollege, -n","коллега","den Kollegen · dem Kollegen · die Kollegen","Von solchen Kollegen lernt man ständig dazu."],
+["der Migrant, -en","мигрант","den Migranten · dem Migranten · die Migranten","Vielen Migranten fällt der Umgang mit der Technik schwer."],
+["der Assistent, -en","ассистент","den Assistenten · dem Assistenten · die Assistenten","Ich nutze vor allem den KI-Assistenten Claude."],
+["der Name, -n","имя","den Namen · dem Namen · die Namen","(не в текстах, но по той же схеме)"]
+];
+
+/* субстантивированные прилагательные: [w, ru, formen, bsp] */
+var ADJDEKL_RAW = [
+["der Bekannte / ein Bekannter","знакомый","Он склоняется как прилагательное: der Bekannte, ein Bekannter, den Bekannten, über Bekannte","… oder über Bekannte"],
+["der Jugendliche / ein Jugendlicher","подросток","die Jugendlichen, für Jugendliche","Versionen für Jugendliche unter achtzehn Jahren"],
+["das Besondere","особенное","das Besondere, etwas Besonderes","Das Besondere: Smart Home ist kein Luxus."],
+["Schwieriges","сложное, трудные вещи","nach etwas/nichts + Adjektiv mit -es","Schwieriges teile ich sofort in Teile auf."]
+];
+
+/* ---------- сборка единого списка ---------- */
+var ITEMS = [];
+function push(o){ o.id = o.sec + '|' + o.w; ITEMS.push(o); return o; }
+
+W_RAW.forEach(function(r){
+  push({sec:'woerter', pos:r[0], w:r[1], ru:r[2], tr:r[3],
+        themen:(r[4]||'').split('').map(Number), bsp:r[5]});
+});
+WEND_RAW.forEach(function(r){
+  push({sec:'wendungen', pos:'', w:r[0], ru:r[1], tr:r[2], themen:[], bsp:r[3]});
+});
+PRAEP_RAW.forEach(function(r){
+  push({sec:'praep', pos:'', w:r[0], kasus:r[1], ru:r[2], falle:r[3], tr:'', themen:[], bsp:r[4]});
+});
+PRONADV_RAW.forEach(function(r){
+  push({sec:'pronadv', pos:'', w:r[0], ru:r[1], tr:'', quelle:r[2], themen:[],
+        bspList:r[3], bsp:r[3][0]});
+});
+NDEKL_RAW.forEach(function(r){
+  push({sec:'dekl', kind:'n-Deklination', pos:'', w:r[0], ru:r[1], tr:'', formen:r[2], themen:[], bsp:r[3]});
+});
+ADJDEKL_RAW.forEach(function(r){
+  push({sec:'dekl', kind:'Adjektiv als Nomen', pos:'', w:r[0], ru:r[1], tr:'', formen:r[2], themen:[], bsp:r[3]});
+});
+
+var SEC_NAME = {woerter:'слова', wendungen:'обороты', praep:'предлоги',
+                pronadv:'мест. наречия', dekl:'склонения'};
+var POS_NAME = {subst:'существительное', verb:'глагол', adj:'прилагательное / наречие'};
+
+/* ---------- прогресс ---------- */
+var SKEY = 'w1a_status', CKEY = 'w1a_settings';
+var STATUS = {};
+try { STATUS = JSON.parse(localStorage.getItem(SKEY) || '{}') || {}; } catch(e){ STATUS = {}; }
+function saveStatus(){ try { localStorage.setItem(SKEY, JSON.stringify(STATUS)); } catch(e){} }
+function box(it){ var s = STATUS[it.id]; return s ? (s.box|0) : 0; }
+function setBox(it, b, ok){
+  var s = STATUS[it.id] || {box:0, seen:0, lastOk:false};
+  s.box = b; s.seen = (s.seen|0) + 1;
+  if(ok !== undefined) s.lastOk = !!ok;
+  STATUS[it.id] = s; saveStatus();
+}
+
+var SET = {rate:0.95, pause:2.5, rep:1, vde:'', vru:''};
+try { var sv = JSON.parse(localStorage.getItem(CKEY) || '{}'); for(var k in sv) if(k in SET) SET[k] = sv[k]; } catch(e){}
+function saveSet(){ try { localStorage.setItem(CKEY, JSON.stringify(SET)); } catch(e){} }
+
+/* ---------- утилиты ---------- */
+function esc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function $(id){ return document.getElementById(id); }
+
+/* немецкое слово для озвучки и для поиска в примере */
+function cleanDe(w){
+  var s = String(w||'');
+  s = s.replace(/\([^)]*\)/g, ' ');       // (kommt an, kam an …)
+  s = s.split(',')[0];                     // "das Angebot, -e" → "das Angebot"
+  s = s.replace(/…/g, ' ').replace(/\s+/g,' ').trim();
+  s = s.replace(/-+$/,'').trim();          // "letzt-" → "letzt"
+  return s;
+}
+function coreWord(w){
+  var s = cleanDe(w).replace(/^(der|die|das)\s+/i,'').replace(/^sich\s+/i,'');
+  var parts = s.split(/\s+/).filter(Boolean);
+  if(!parts.length) return '';
+  parts.sort(function(a,b){ return b.length - a.length; });
+  return parts[0].replace(/[^A-Za-zÄÖÜäöüß-]/g,'');
+}
+function clozeOf(it){
+  if(!it.bsp) return null;
+  var base = coreWord(it.w);
+  if(!base || base.length < 3) return null;
+  var stems = [base];
+  if(base.length > 6) stems.push(base.slice(0, base.length-2));
+  if(base.length > 7) stems.push(base.slice(0, base.length-3));
+  for(var i=0;i<stems.length;i++){
+    var st = stems[i].replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    var re = new RegExp('[A-Za-zÄÖÜäöüß]*' + st + '[A-Za-zÄÖÜäöüß]*', 'i');
+    if(re.test(it.bsp)) return it.bsp.replace(re, '______');
+  }
+  return null;
+}
+
+/* ---------- вкладки ---------- */
+var tabBtns = document.querySelectorAll('nav.tabs button');
+Array.prototype.forEach.call(tabBtns, function(b){
+  b.onclick = function(){
+    Array.prototype.forEach.call(tabBtns, function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    ['kartei','drill','audio','fallen'].forEach(function(t){
+      $('p-'+t).classList.toggle('on', t === b.dataset.tab);
+    });
+    if(b.dataset.tab !== 'audio') stopAudio();
+    if(b.dataset.tab === 'drill') refreshDrill();
+    window.scrollTo(0,0);
+  };
+});
+
+/* ---------- картотека ---------- */
+var F = {sec:'all', pos:'all', thema:'all', status:'all', falle:false, q:''};
+
+function chips(host, list, key){
+  host.innerHTML = list.map(function(o){
+    return '<button class="chip' + (F[key] === o.v ? ' on' : '') + '" data-v="' + esc(o.v) + '">' + esc(o.t) + '</button>';
+  }).join('');
+  Array.prototype.forEach.call(host.querySelectorAll('.chip'), function(b){
+    b.onclick = function(){ F[key] = b.dataset.v; buildFilters(); renderKartei(); };
+  });
+}
+function buildFilters(){
+  chips($('f-sec'), [{v:'all',t:'все'},{v:'woerter',t:'слова'},{v:'wendungen',t:'обороты'},
+    {v:'praep',t:'предлоги'},{v:'pronadv',t:'мест. наречия'},{v:'dekl',t:'склонения'}], 'sec');
+  chips($('f-pos'), [{v:'all',t:'все'},{v:'subst',t:'сущ.'},{v:'verb',t:'глаголы'},
+    {v:'adj',t:'прил. / нареч.'}], 'pos');
+  var th = [{v:'all',t:'все'}];
+  for(var i=1;i<=8;i++) th.push({v:String(i), t:String(i)});
+  chips($('f-thema'), th, 'thema');
+  chips($('f-status'), [{v:'all',t:'все'},{v:'0',t:'новое'},{v:'1',t:'учу'},{v:'2',t:'знаю'}], 'status');
+}
+
+function matchFilter(it){
+  if(F.sec !== 'all' && it.sec !== F.sec) return false;
+  if(F.pos !== 'all' && it.pos !== F.pos) return false;
+  if(F.thema !== 'all' && it.themen.indexOf(+F.thema) === -1) return false;
+  if(F.status !== 'all' && box(it) !== +F.status) return false;
+  if(F.falle && !(it.sec === 'praep' && it.falle)) return false;
+  if(F.q){
+    var hay = (it.w + ' ' + it.ru + ' ' + (it.tr||'') + ' ' + (it.bsp||'') + ' ' +
+               (it.formen||'') + ' ' + (it.falle||'') + ' ' + (it.quelle||'')).toLowerCase();
+    if(hay.indexOf(F.q) === -1) return false;
+  }
+  return true;
+}
+
+var OPEN = {};
+function statusBar(it){
+  var b = box(it);
+  return '<div class="stbar">' +
+    [[0,'новое'],[1,'учу'],[2,'знаю']].map(function(p){
+      return '<button class="chip mini' + (b === p[0] ? ' on' : '') + '" data-st="' + p[0] + '" data-id="' + esc(it.id) + '">' + p[1] + '</button>';
+    }).join('') + '</div>';
+}
+function cardHtml(it){
+  var open = !!OPEN[it.id];
+  var h = '<div class="card" data-id="' + esc(it.id) + '">' +
+    '<div class="chead"><div class="cw">' + esc(it.w) +
+      (it.kasus ? ' <span class="badge g">' + esc(it.kasus) + '</span>' : '') +
+      (it.sec !== 'woerter' ? ' <span class="badge">' + esc(SEC_NAME[it.sec]) + '</span>' : '') +
+      '</div>' +
+      (it.tr ? '<div class="ctr">' + esc(it.tr) + '</div>' : '') + '</div>';
+  if(open){
+    h += '<div class="cbody">';
+    h += '<div class="ru">' + esc(it.ru) + '</div>';
+    var meta = [];
+    if(it.pos) meta.push(POS_NAME[it.pos]);
+    if(it.themen && it.themen.length) meta.push('темы: ' + it.themen.join(', '));
+    if(it.kind) meta.push(it.kind);
+    if(meta.length) h += '<div class="meta">' + esc(meta.join(' · ')) + '</div>';
+    if(it.falle) h += '<div class="falle">⚠ ' + esc(it.falle) + '</div>';
+    if(it.formen) h += '<div class="formen">' + esc(it.formen) + '</div>';
+    if(it.quelle) h += '<div class="quelle">от: ' + esc(it.quelle) + '</div>';
+    if(it.bspList){
+      it.bspList.forEach(function(b){
+        h += '<div class="bsp"' + (/^ВНИМАНИЕ/.test(b) ? ' style="color:var(--warn);background:var(--warn-bg)"' : '') + '>' + esc(b) + '</div>';
+      });
+    } else if(it.bsp){
+      h += '<div class="bsp">' + esc(it.bsp) + '</div>';
+    }
+    h += statusBar(it);
+    h += '</div>';
+  }
+  return h + '</div>';
+}
+function renderKartei(){
+  var list = ITEMS.filter(matchFilter);
+  $('k-count').textContent = list.length + ' из ' + ITEMS.length + ' записей';
+  var host = $('k-list');
+  if(!list.length){ host.innerHTML = '<div class="empty">Ничего не найдено.</div>'; return; }
+  host.innerHTML = list.map(cardHtml).join('');
+  Array.prototype.forEach.call(host.querySelectorAll('.chead'), function(h){
+    h.onclick = function(){
+      var id = h.parentNode.dataset.id;
+      OPEN[id] = !OPEN[id];
+      renderKartei();
+    };
+  });
+  Array.prototype.forEach.call(host.querySelectorAll('[data-st]'), function(b){
+    b.onclick = function(ev){
+      ev.stopPropagation();
+      var it = byId(b.dataset.id);
+      if(it){ setBox(it, +b.dataset.st, +b.dataset.st === 2); renderKartei(); refreshDrill(); }
+    };
+  });
+}
+var IDX = {};
+ITEMS.forEach(function(it){ IDX[it.id] = it; });
+function byId(id){ return IDX[id]; }
+
+$('q').oninput = function(){ F.q = this.value.trim().toLowerCase(); renderKartei(); };
+$('f-falle').onchange = function(){ F.falle = this.checked; renderKartei(); };
+$('f-reset').onclick = function(){
+  F = {sec:'all', pos:'all', thema:'all', status:'all', falle:false, q:''};
+  $('q').value = ''; $('f-falle').checked = false;
+  buildFilters(); renderKartei();
+};
+
+/* ---------- выборка колоды (дрилл и аудио) ---------- */
+function deckOf(deck, thema, status){
+  return ITEMS.filter(function(it){
+    if(it.sec !== 'woerter' && it.sec !== 'wendungen' && it.sec !== 'praep') return false;
+    if(deck === 'woerter' || deck === 'wendungen' || deck === 'praep'){ if(it.sec !== deck) return false; }
+    else if(deck === 'subst' || deck === 'verb' || deck === 'adj'){ if(it.pos !== deck) return false; }
+    if(thema && thema !== 'all'){
+      if(it.sec !== 'woerter' || it.themen.indexOf(+thema) === -1) return false;
+    }
+    if(status !== undefined && status !== 'all' && box(it) !== +status) return false;
+    return true;
+  });
+}
+function fillThema(sel){
+  var h = '<option value="all">все темы</option>';
+  for(var i=1;i<=8;i++) h += '<option value="' + i + '">тема ' + i + '</option>';
+  sel.innerHTML = h;
+}
+fillThema($('d-thema')); fillThema($('a-thema'));
+
+/* ---------- дрилл ---------- */
+var cur = null, shown = false;
+
+function pool(){
+  return deckOf($('d-deck').value, $('d-thema').value).filter(function(it){
+    if(box(it) === 2) return false;
+    if($('d-dir').value === 'cloze' && !clozeOf(it)) return false;
+    return true;
+  });
+}
+function refreshDrill(){
+  var all = deckOf($('d-deck').value, $('d-thema').value);
+  var n = 0, l = 0, k = 0;
+  all.forEach(function(it){ var b = box(it); if(b === 0) n++; else if(b === 1) l++; else k++; });
+  $('s-new').textContent = n; $('s-learn').textContent = l; $('s-known').textContent = k;
+}
+function nextCard(){
+  var p = pool();
+  if(!p.length){
+    cur = null;
+    $('d-card').innerHTML = '<div class="dq">Готово 🎉</div>' +
+      '<div class="dhint">В этой выборке все слова в корзине «знаю».<br>Смените колоду/тему или сбросьте прогресс.</div>';
+    $('d-btns').innerHTML = '';
+    refreshDrill();
+    return;
+  }
+  // приоритет: сначала «учу», потом новое
+  var learn = p.filter(function(it){ return box(it) === 1; });
+  var src = (learn.length && Math.random() < 0.6) ? learn : p;
+  cur = src[Math.floor(Math.random() * src.length)];
+  shown = false;
+  drawCard();
+}
+function drawCard(){
+  if(!cur) return;
+  var dir = $('d-dir').value, h = '';
+  if(dir === 'de-ru'){
+    h = '<div class="dq">' + esc(cur.w) + '</div>';
+    if(cur.tr) h += '<div class="dhint">' + esc(cur.tr) + '</div>';
+    if(shown) h += '<div class="da">' + esc(cur.ru) + '</div>';
+  } else if(dir === 'ru-de'){
+    h = '<div class="dq">' + esc(cur.ru) + '</div>';
+    if(shown){
+      h += '<div class="da">' + esc(cur.w) + '</div>';
+      if(cur.tr) h += '<div class="dhint">' + esc(cur.tr) + '</div>';
+    }
+  } else {
+    h = '<div class="dq" style="font-size:17px">' + esc(clozeOf(cur) || cur.bsp) + '</div>';
+    h += '<div class="dhint">' + esc(cur.ru) + '</div>';
+    if(shown) h += '<div class="da">' + esc(cur.w) + '</div>';
+  }
+  if(shown && cur.bsp && dir !== 'cloze') h += '<div class="dex">' + esc(cur.bsp) + '</div>';
+  if(shown && cur.falle) h += '<div class="falle">⚠ ' + esc(cur.falle) + '</div>';
+  $('d-card').innerHTML = h;
+  $('d-btns').innerHTML = shown
+    ? '<button class="btn grey wide" id="d-no">не знаю</button>' +
+      '<button class="btn wide" id="d-yes">знаю</button>' +
+      '<button class="btn ghost" id="d-say">🔊</button>'
+    : '<button class="btn wide" id="d-show">показать</button>' +
+      '<button class="btn ghost" id="d-say">🔊</button>';
+  if($('d-show')) $('d-show').onclick = function(){ shown = true; drawCard(); };
+  if($('d-say')) $('d-say').onclick = function(){ sayOnce(cleanDe(cur.w), 'de'); };
+  if($('d-yes')) $('d-yes').onclick = function(){
+    var s = STATUS[cur.id];
+    var wasOk = s && s.lastOk;
+    setBox(cur, wasOk ? 2 : 1, true);
+    refreshDrill(); nextCard();
+  };
+  if($('d-no')) $('d-no').onclick = function(){
+    setBox(cur, 1, false); refreshDrill(); nextCard();
+  };
+}
+$('d-dir').onchange = nextCard;
+$('d-deck').onchange = function(){ refreshDrill(); nextCard(); };
+$('d-thema').onchange = function(){ refreshDrill(); nextCard(); };
+$('d-reset').onclick = function(){
+  if(confirm('Сбросить весь прогресс дрилла? Статусы всех слов вернутся в «новое».')){
+    STATUS = {}; saveStatus(); refreshDrill(); renderKartei(); nextCard();
+  }
+};
+
+/* ---------- аудио ---------- */
+var VOICES = [], playing = false, queue = [], qi = 0, repLeft = 1;
+
+function loadVoices(){
+  VOICES = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+  var de = VOICES.filter(function(v){ return /^de/i.test(v.lang); });
+  var ru = VOICES.filter(function(v){ return /^ru/i.test(v.lang); });
+  function fill(sel, list, cur){
+    sel.innerHTML = list.length
+      ? list.map(function(v){
+          return '<option value="' + esc(v.voiceURI) + '"' + (v.voiceURI === cur ? ' selected' : '') + '>' + esc(v.name) + '</option>';
+        }).join('')
+      : '<option value="">— голос не найден —</option>';
+  }
+  fill($('a-vde'), de, SET.vde);
+  fill($('a-vru'), ru, SET.vru);
+  $('a-info').textContent = VOICES.length
+    ? ('Голосов в системе: ' + VOICES.length + ' (DE: ' + de.length + ', RU: ' + ru.length + ')')
+    : 'Голоса ещё не загружены — нажмите «Старт» один раз.';
+}
+if(window.speechSynthesis){
+  loadVoices();
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+function pickVoice(lang){
+  var want = lang === 'de' ? SET.vde : SET.vru;
+  var v = VOICES.filter(function(x){ return x.voiceURI === want; })[0];
+  if(v) return v;
+  return VOICES.filter(function(x){ return new RegExp('^' + lang, 'i').test(x.lang); })[0] || null;
+}
+function sayOnce(text, lang, rate, onend){
+  if(!window.speechSynthesis || !text){ if(onend) onend(); return; }
+  var u = new SpeechSynthesisUtterance(text);
+  var v = pickVoice(lang);
+  if(v) u.voice = v;
+  u.lang = v ? v.lang : (lang === 'de' ? 'de-DE' : 'ru-RU');
+  u.rate = rate || SET.rate;
+  u.onend = function(){ if(onend) onend(); };
+  u.onerror = function(){ if(onend) onend(); };
+  speechSynthesis.speak(u);
+}
+function stepsFor(it, mode){
+  var w = cleanDe(it.w), P = SET.pause * 1000;
+  if(mode === '1') return [{t:'de', x:w}];
+  if(mode === '2') return [{t:'de', x:w}, {t:'p', ms:P}, {t:'ru', x:it.ru}];
+  if(mode === '3') return [{t:'de', x:it.bsp || w}];
+  if(mode === '4') return [{t:'ru', x:it.ru}, {t:'p', ms:P}, {t:'de', x:w}];
+  if(mode === '5') return [{t:'de', x:it.bsp || w, rate:Math.max(0.5, SET.rate * 0.65)},
+                           {t:'p', ms:P}, {t:'de', x:it.bsp || w}];
+  return [{t:'de', x:w}, {t:'p', ms:P}, {t:'ru', x:it.ru}];
+}
+function buildQueue(){
+  var mode = $('a-mode').value;
+  if(mode === '6') return ITEMS.filter(function(it){ return it.sec === 'wendungen'; });
+  var list = deckOf($('a-deck').value, $('a-thema').value, $('a-status').value);
+  if(mode === '3' || mode === '5') list = list.filter(function(it){ return !!it.bsp; });
+  return list;
+}
+function showNow(it){
+  $('a-now').innerHTML = it
+    ? '<div class="an-w">' + esc(it.w) + '</div>' +
+      (it.tr ? '<div class="an-ru">' + esc(it.tr) + '</div>' : '') +
+      '<div class="an-ru">' + esc(it.ru) + '</div>' +
+      (it.bsp ? '<div class="an-bsp">' + esc(it.bsp) + '</div>' : '')
+    : '<div class="an-ru">Нажмите «Старт»</div>';
+}
+var pauseTimer = null;
+function runItem(){
+  if(!playing) return;
+  if(qi >= queue.length){ stopAudio(); $('a-now').innerHTML = '<div class="an-ru">Готово ✓</div>'; return; }
+  var it = queue[qi];
+  showNow(it);
+  var steps = stepsFor(it, $('a-mode').value), si = 0;
+  (function step(){
+    if(!playing) return;
+    if(si >= steps.length){
+      repLeft--;
+      if(repLeft > 0){ si = 0; pauseTimer = setTimeout(step, 400); return; }
+      qi++; repLeft = SET.rep;
+      pauseTimer = setTimeout(runItem, 500);
+      return;
+    }
+    var s = steps[si++];
+    if(s.t === 'p'){ pauseTimer = setTimeout(step, s.ms); return; }
+    sayOnce(s.x, s.t, s.rate, step);
+  })();
+}
+function startAudio(){
+  if(!window.speechSynthesis){ alert('Браузер не поддерживает синтез речи.'); return; }
+  queue = buildQueue();
+  if(!queue.length){ alert('В этой выборке нечего озвучивать.'); return; }
+  speechSynthesis.cancel();
+  playing = true; qi = 0; repLeft = SET.rep;
+  $('a-play').textContent = '❚❚ Идёт…';
+  $('a-info').textContent = 'В очереди: ' + queue.length;
+  runItem();
+}
+function stopAudio(){
+  playing = false;
+  if(pauseTimer) clearTimeout(pauseTimer);
+  if(window.speechSynthesis) speechSynthesis.cancel();
+  $('a-play').textContent = '▶ Старт';
+}
+$('a-play').onclick = function(){ if(playing) stopAudio(); else startAudio(); };
+$('a-stop').onclick = function(){ stopAudio(); showNow(null); };
+$('a-next').onclick = function(){
+  if(!playing) return;
+  if(pauseTimer) clearTimeout(pauseTimer);
+  speechSynthesis.cancel();
+  qi++; repLeft = SET.rep; runItem();
+};
+['a-deck','a-thema','a-status','a-mode'].forEach(function(id){
+  $(id).onchange = function(){ if(playing){ stopAudio(); startAudio(); } };
+});
+function bindRange(id, key, fmt){
+  var el = $(id), out = $(id + '-v');
+  el.value = SET[key];
+  out.textContent = fmt(SET[key]);
+  el.oninput = function(){ SET[key] = parseFloat(el.value); out.textContent = fmt(SET[key]); saveSet(); };
+}
+bindRange('a-rate', 'rate', function(v){ return v.toFixed(2) + '×'; });
+bindRange('a-pause', 'pause', function(v){ return v.toFixed(1) + ' с'; });
+bindRange('a-rep', 'rep', function(v){ return v + '×'; });
+$('a-vde').onchange = function(){ SET.vde = this.value; saveSet(); };
+$('a-vru').onchange = function(){ SET.vru = this.value; saveSet(); };
+
+/* ---------- ловушки ---------- */
+function renderFallen(){
+  $('t-praep').innerHTML = ITEMS.filter(function(i){ return i.sec === 'praep'; }).map(function(it){
+    return '<div class="card"><div class="cbody" style="border-top:none;padding-top:11px">' +
+      '<div class="cw">' + esc(it.w) + ' <span class="badge g">' + esc(it.kasus) + '</span></div>' +
+      '<div class="ru">' + esc(it.ru) + '</div>' +
+      (it.falle ? '<div class="falle">⚠ ' + esc(it.falle) + '</div>' : '') +
+      (it.bsp ? '<div class="bsp">' + esc(it.bsp) + '</div>' : '') +
+      '</div></div>';
+  }).join('');
+
+  $('t-memo').innerHTML = MEMO_RAW.map(function(m){
+    return '<div class="memo"><b>' + esc(m[0]) + '</b><span>' + esc(m[1]) + '</span></div>';
+  }).join('');
+
+  $('t-pronadv').innerHTML = ITEMS.filter(function(i){ return i.sec === 'pronadv'; }).map(function(it){
+    return '<div class="card"><div class="cbody" style="border-top:none;padding-top:11px">' +
+      '<div class="cw">' + esc(it.w) + '</div>' +
+      '<div class="ru">' + esc(it.ru) + '</div>' +
+      (it.quelle && it.quelle !== '—' ? '<div class="quelle">от: ' + esc(it.quelle) + '</div>' : '') +
+      it.bspList.map(function(b){
+        return '<div class="tline' + (/^ВНИМАНИЕ/.test(b) ? ' warn' : '') + '">' + esc(b) + '</div>';
+      }).join('') +
+      '</div></div>';
+  }).join('');
+
+  $('t-dekl').innerHTML = ITEMS.filter(function(i){ return i.sec === 'dekl'; }).map(function(it){
+    return '<div class="card"><div class="cbody" style="border-top:none;padding-top:11px">' +
+      '<div class="cw">' + esc(it.w) + ' <span class="badge">' + esc(it.kind) + '</span></div>' +
+      '<div class="ru">' + esc(it.ru) + '</div>' +
+      '<div class="formen">' + esc(it.formen) + '</div>' +
+      (it.bsp ? '<div class="bsp">' + esc(it.bsp) + '</div>' : '') +
+      '</div></div>';
+  }).join('');
+}
+
+/* ---------- старт ---------- */
+buildFilters();
+renderKartei();
+renderFallen();
+refreshDrill();
+nextCard();
+/* ---------- офлайн-режим (работает только на сайте, не с файла) ---------- */
+if('serviceWorker' in navigator && location.protocol.indexOf('http') === 0){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  });
+}
+</script>
+</body>
+</html>

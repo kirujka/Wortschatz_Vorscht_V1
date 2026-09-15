@@ -1,0 +1,17 @@
+{
+  "name": "Wortschatz 1A",
+  "short_name": "Wortschatz 1A",
+  "description": "Словарь по восьми текстам Sprechen Teil 1A · Deutsch B2 Beruf",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F6F4",
+  "theme_color": "#0E7C6B",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

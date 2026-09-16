@@ -1,6 +1,6 @@
 /* Wortschatz 1A — офлайн-кэш.
    При заливке новой версии приложения поменяй число в CACHE — старый кэш удалится сам. */
-var CACHE = 'w1a-v1';
+var CACHE = 'w1a-v2';
 var FILES = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', function(e){
